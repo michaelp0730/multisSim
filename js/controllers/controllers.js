@@ -105,6 +105,12 @@ $.subscribe('slotItems.scanned', function() {
 });
 
 $.subscribe('slot.complete', function() {
-    console.log('slot.complete');
     shipmentStepsView.complete();
+    loadSlot();
+    slotView.render();
+    boxRecView.render();
+    itemsView.render();
+    var slotHeight = $('#multis-slot-recommendation').height();
+    $('#multis-slot').removeClass().addClass('slot-red').css({lineHeight: slotHeight + 'px'});
+    $('#multis-box').removeClass().addClass('boxrec-purple').css({lineHeight: slotHeight + 'px'});
 });

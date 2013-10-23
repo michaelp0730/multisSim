@@ -153,6 +153,7 @@ app.ItemsView = Backbone.View.extend({
         this.mode = 'active';
         this.model = model;
         this.unscanned = model.get('items');
+        this.scanned = new app.ProductsCollection();
         this.render();
     },
     deactivate: function() {
@@ -193,10 +194,10 @@ app.ItemsView = Backbone.View.extend({
             scanValue = $(this).val();
             if (e.which === 13) {
                 if (view.active === false && view.mode !== 'complete') {
-                    if (scanValue === "SR2085") {
+                    if (scanValue === "SR2085" || scanValue === "sr2085") {
                         $.publish('cart.scanned', [scanValue]);
                     }
-                } else if (view.mode === 'active') {
+                } else if (view.active === true) {
                     var validItems = view.unscanned.where({asin: scanValue}),
                         scannedItem;
                     $('#multis-slot').removeClass().addClass('direction-faded');
@@ -306,7 +307,6 @@ app.ShipmentStepsView = Backbone.View.extend({
                         // Invalid SP00
                         console.log('NOT SPOOOO');
                         view.activate();
-
                     }
                 }
             }
