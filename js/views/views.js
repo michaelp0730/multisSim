@@ -262,7 +262,6 @@ app.ShipmentStepsView = Backbone.View.extend({
         var view = this,
             model = this.model;
 
-        console.log("Shipment Steps Render status: ", this.spoo.get('status'));
         this.$el.html(this.template({
             active: view.active,
             spooStep: this.spoo,
@@ -270,10 +269,9 @@ app.ShipmentStepsView = Backbone.View.extend({
         }));
     },
     activate: function() {
+        this.active = true;
         if (this.actions.length === 0) {
-            console.log('Actions length: 0');
             this.spoo.set('status', 'active');
-            console.log('Current Spoo status: ', this.spoo.get('status'));
         } else {
             var incompleteActions = this.actions.where({ status: "inactive" });
             this.actions.where({ status: "active" })[0].set('status', 'complete');
@@ -288,7 +286,6 @@ app.ShipmentStepsView = Backbone.View.extend({
     complete: function() {
         this.active = false;
         this.spoo.set('status', 'complete');
-        console.log("Shipment Steps Complete status: ", this.spoo.get('status'));
         this.render();
     },
     listen: function() {
@@ -296,7 +293,6 @@ app.ShipmentStepsView = Backbone.View.extend({
             model = this.model;
 
         $('#scanner-input').on('keypress', function(e) {
-            console.log(view.active);
             if (view.active === true) {
                 var code = e.keyCode || e.which,
                     val;
