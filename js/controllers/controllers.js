@@ -22,6 +22,8 @@ var app = app || {},
 
     allSlots = new app.SlotCollection(),
 
+    lastShipment = new app.LastShipmentView(),
+
     slotView, boxRecView,
 
     loadSlot = function() {
@@ -89,14 +91,8 @@ $.subscribe('cart.scanned', function(e) {
     });
 });
 
-$.subscribe('item.scanned', function(e, scanValue) {
-    var items = unscannedItemsView.model.attributes.items;
-    for (n in items) {
-        if (scanValue === items[n].asin) {
-            var index = findWithAttr(items, 'asin', items[n].asin );
-        }
-    }
-    $('#multis-slot').removeClass().addClass('direction-faded');
+$.subscribe('item.scanned', function(item) {
+    lastShipment.hide();
 });
 
 $.subscribe('slotItems.scanned', function() {
@@ -104,12 +100,13 @@ $.subscribe('slotItems.scanned', function() {
     shipmentStepsView.render();
 });
 
-$.subscribe('slot.complete', function() {
+$.subscribe('slot.complete', function(e, spoo) {
     shipmentStepsView.complete();
     loadSlot();
     slotView.render();
     boxRecView.render();
     itemsView.render();
+    lastShipment.render(spoo);
     var slotHeight = $('#multis-slot-recommendation').height();
     $('#multis-slot').removeClass().addClass('slot-red').css({lineHeight: slotHeight + 'px'});
     $('#multis-box').removeClass().addClass('boxrec-purple').css({lineHeight: slotHeight + 'px'});

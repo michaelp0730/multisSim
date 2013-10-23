@@ -206,6 +206,7 @@ app.ItemsView = Backbone.View.extend({
                         scannedItem = validItems.shift();
                         view.scanned.add(scannedItem);
                         view.unscanned.remove(scannedItem);
+                        $.publish('item.scanned', [scannedItem]);
                     }
 
                     if (view.unscanned.length === 0) {
@@ -259,6 +260,8 @@ app.ShipmentStepsView = Backbone.View.extend({
                     break;
             }
         }
+
+        this.render();
     },
     render: function() {
         var view = this,
@@ -302,14 +305,27 @@ app.ShipmentStepsView = Backbone.View.extend({
                     val = $(this).val();
                     if (val.match(/^sp/i) && view.spoo.get('status') === 'active') {
                         // SP00 scanned
-                        $.publish('slot.complete');
+                        $.publish('slot.complete', [val]);
                     } else {
                         // Invalid SP00
-                        console.log('NOT SPOOOO');
                         view.activate();
                     }
                 }
             }
         });
+    }
+});
+
+app.LastShipmentView = Backbone.View.extend({
+    el: $('#last-shipment-complete-container'),
+    render: function(spoo) {
+        this.$el.find('p').html(spoo);
+        this.show();
+    },
+    show: function() {
+        this.$el.show();
+    },
+    hide: function() {
+        this.$el.hide();
     }
 });
