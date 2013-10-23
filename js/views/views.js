@@ -145,16 +145,22 @@ app.ItemsView = Backbone.View.extend({
         this.scanned = new app.ProductsCollection();
         this.unscanned = new app.ProductsCollection();
         this.active = false;
+        this.mode = 'inactive';
         this.listen();
     },
     setModel: function(model) {
         this.active = true;
+        this.mode = 'active';
         this.model = model;
         this.unscanned = model.get('items');
         this.render();
     },
     deactivate: function() {
         this.active = false;
+    },
+    complete: function() {
+        this.active = false;
+        this.mode = 'complete';
     },
     render: function() {
         var view = this,
@@ -186,11 +192,11 @@ app.ItemsView = Backbone.View.extend({
         $('#scanner-input').keypress(function(e) {
             scanValue = $(this).val();
             if (e.which === 13) {
-                if (view.active === false) {
+                if (view.active === false && view.mode !== 'complete') {
                     if (scanValue === "SR2085") {
                         $.publish('cart.scanned', [scanValue]);
                     }
-                } else {
+                } else if (view.mode === 'active') {
                     var validItems = view.unscanned.where({asin: scanValue}),
                         scannedItem;
                     $('#multis-slot').removeClass().addClass('direction-faded');
@@ -203,7 +209,7 @@ app.ItemsView = Backbone.View.extend({
 
                     if (view.unscanned.length === 0) {
                         $.publish('slotItems.scanned');
-                        this.active = false;
+                        view.complete();
                     }
                 }
                 view.render();
@@ -224,57 +230,88 @@ app.ShipmentStepsView = Backbone.View.extend({
     },
     setModel: function(model) {
         this.model = model;
-        this.actions = [];
+        this.spoo = new app.Action({
+            type: "spoo",
+            status: "inactive",
+            text: {
+                "inactive": "SP00 Label Required",
+                "active": "Scan SP00 Label",
+                "complete": "SP00 Label Scanned"
+            }
+        });
 
-        var actions = model.get('actions'), data;
-        actions.SPOO = true;
+        this.actions = new app.ActionsCollection();
+        var actions = model.get('actions');
         for (var type in actions) {
             switch (type) {
-                case "SPOO":
-                    data = new app.Action({
-                        type: "spoo",
+                case "PSLIP":
+                    this.actions.add({
+                        type: "pslip",
                         status: "inactive",
                         text: {
-                            "inactive": "SP00 Label Required",
-                            "active": "Scan SP00 Label",
-                            "complete": "SP00 Label Scanned"
+                            "inactive": "PSLIP INACTIVE",
+                            "active": "PSLIP ACTIVE",
+                            "complete": "PSLIP COMPLETE"
                         }
                     });
                     break;
             }
         }
-        this.actions.push(data);
     },
     render: function() {
-        //console.log(this.active, this.model);
         var view = this,
             model = this.model;
 
+        console.log("Shipment Steps Render status: ", this.spoo.get('status'));
         this.$el.html(this.template({
             active: view.active,
+            spooStep: this.spoo,
             steps: view.actions
         }));
     },
     activate: function() {
-        this.active = true;
-        _.each(this.actions, function(a) {
-            a.set("status", "active");
-        });
+        if (this.actions.length === 0) {
+            console.log('Actions length: 0');
+            this.spoo.set('status', 'active');
+            console.log('Current Spoo status: ', this.spoo.get('status'));
+        } else {
+            var incompleteActions = this.actions.where({ status: "inactive" });
+            this.actions.where({ status: "active" })[0].set('status', 'complete');
+
+            if (incompleteActions.length > 0) {
+                incompleteActions[0].set('status', 'active');
+            } else {
+                this.spoo.set('status', 'active');
+            }
+        }
+    },
+    complete: function() {
+        this.active = false;
+        this.spoo.set('status', 'complete');
+        console.log("Shipment Steps Complete status: ", this.spoo.get('status'));
+        this.render();
     },
     listen: function() {
         var view = this,
             model = this.model;
+
         $('#scanner-input').on('keypress', function(e) {
+            console.log(view.active);
             if (view.active === true) {
                 var code = e.keyCode || e.which,
                     val;
                 if (code === 13) {
                     val = $(this).val();
-                    if (val.match(/^sp/i)) {
+
+                    if (val.match(/^sp/i) && view.spoo.get('status') === 'active') {
                         // SP00 scanned
-                        console.log('SPOOOOOOOO');
+                        console.log('SP00 scanned');
+                        $.publish('slot.complete');
                     } else {
+                        // Invalid SP00
                         console.log('NOT SPOOOO');
+                        view.activate();
+
                     }
                 }
             }

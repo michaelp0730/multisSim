@@ -242,13 +242,14 @@
     <script type="text/template" id="shipment-template">
         <%
             var clsName = 'shipment-single-step';
-            if (steps.length === 2) clsName = 'shipment-double-step';
-            if (steps.length === 3) clsName = 'shipment-triple-step';
+            if (steps.length === 1) clsName = 'shipment-double-step';
+            if (steps.length === 2) clsName = 'shipment-triple-step';
         %>
         <div class="<%= clsName %>">
-            <% _.each(steps, function(step) { %>
+            <% _.each(steps.models, function(step) { %>
             <h4 class="<%= step.get('type') %> <%= step.get('status') %>"><span><%= step.getText() %></span></h4>
             <% }); %>
+            <h4 class="spoo <%= spooStep.get('status') %>"><span><%= spooStep.getText() %></span></h4>
         </div>
     </script>
 

@@ -13,3 +13,7 @@ app.SlotCollection = Backbone.Collection.extend({
 app.ProductsCollection = Backbone.Collection.extend({
     model: app.Product
 });
+
+app.ActionsCollection = Backbone.Collection.extend({
+    model: app.Action
+});
