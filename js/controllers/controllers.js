@@ -108,7 +108,3 @@ $.subscribe('slot.complete', function() {
     console.log('slot.complete');
     shipmentStepsView.complete();
 });
-
-// Collection tests
-var itemsToScan = new app.ProductsCollection(),
-    scannedItems = new app.ProductsCollection();

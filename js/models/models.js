@@ -42,8 +42,10 @@ app.Action = Backbone.Model.extend({
             "complete": "baz"
         }
     },
-
     getText: function() {
+        return this.get('text')[this.get('status')];
+    },
+    getCompleteMsg: function() {
         return this.get('text')[this.get('status')];
     }
 });

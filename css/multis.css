@@ -253,6 +253,10 @@ h4.pslip.inactive, h4.spoo.inactive, .boxrec-light {
     border: none;
     border-radius: 5px; }
 
+h4.spoo.complete {
+    background-color: #5a9952;
+    color: #FFF; }
+
 .scanned {
     height: 100%;
     color: #FFF;
@@ -284,10 +288,6 @@ h4.pslip.inactive, h4.spoo.inactive, .boxrec-light {
     margin: 15px 0 5px; }
 .multis-confirmation p {
     font-size: 0.875em; }
-
-.multis-complete {
-    background-color: #5a9952;
-    color: #FFF; }
 
 .multis-failed {
     background-color: #716e6b;
