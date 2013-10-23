@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PackApp Multis</title>
+    <link rel="stylesheet" href="css/singles.css" />
+    <link rel="stylesheet" href="css/multis.css" />
+</head>
+
+<body>
+    <input type="text" id="scanner-input" />
+    <!-- Scan Workstation -->
+    <div id="multis-scan-workstation-wrapper" class="clearfix login-wrapper-inner">
+        <header>
+            <img src="img/pack_logo.png" alt="Pack App" class="float-left">
+            <div class="login-user-container">
+                <img class="login-user-img" src="img/user.jpg" alt="User Image">
+                <span id="login-user-name" class="login-user-name">allrobins</span>
+            </div>
+        </header>
+
+        <div class="login-container">
+            <header id="scan-workstation-header" class="rounded-top-corners-small">Scan your workstation</header>
+            <img src="img/login-workstation.png" alt="Workstation" class="login-img">
+            <input id="workstation-input" type="text" placeholder="Workstation Barcode" class="login-input" autofocus="true">
+        </div>
+    </div>
+    <!-- End Scan Workstation -->
+
+    <!-- Multis main wrapper -->
+    <div id="multisScreen" class="multis-wrapper">
+        <!-- Main Header -->
+        <header id="main-header" class="main-header"></header>
+
+        <!-- Process -->
+        <section id="process" class="process container">
+            <span class="pack-type rounded-left-corners-small center-text">
+                Multis Pack
+            </span>
+            <span id="multis-process-arrow-left" class="arrow left-arrow-complete">
+                Scan cart to begin
+                <span></span>
+            </span>
+            <span id="multis-process-arrow-center" class="arrow center-arrow-incomplete">
+                <span class="arrow-rear"></span>
+                Pack each slot
+                <span class="center-arrow-front"></span>
+            </span>
+            <span id="multis-process-arrow-right" class="arrow right-arrow-incomplete">
+                <span class="arrow-rear"></span>
+                Cart complete
+            </span>
+
+        </section>
+
+        <!-- Item Info -->
+        <section id="multis-item-info" class="item-info">
+            <!-- Left Column -->
+            <div id="multis-column-left" class="multis-column-left">
+                <!-- Top Container -->
+                <div class="multis-container-top container">
+                    <header class="multis-container-header rounded-top-corners-small">Slot</header>
+                    <div id="multis-slot-recommendation" class="multis-info"></div>
+                </div>
+                <!-- Bottom Container -->
+                <div class="multis-container-bottom container">
+                    <header class="multis-container-header rounded-top-corners-small">Box</header>
+                    <div id="multis-box-recommendation" class="multis-info"></div>
+                </div>
+            </div>
+
+            <!-- Caret Left Column -->
+            <div id="multis-caret-column-left" class="multis-caret-column float-left"></div>
+
+            <!-- Center Column showing items -->
+            <div id="center-column" class="multis-items-column container"></div>
+
+            <div class="multis-column-right">
+                <!-- Multis Shipment Container -->
+                <div class="multis-large-container-top container">
+                    <header class="multis-container-header rounded-top-corners-small">Shipment</header>
+                    <div id="shipment-information" class="multis-info"></div>
+                </div>
+            </div>
+        </section> <!-- #multis-item-info -->
+    </div>
+    <!-- End Multis main wrapper -->
+
+    <!-- #main-header-template -->
+    <script type="text/template" id="main-header-template">
+        <div id="clock" class="clock-text"></div>
+        <img src="img/pack_logo.png" alt="Pack App">
+        <nav class="float-right">
+            <ul>
+                <li class="problem-button">problem
+                    <span class="main-nav-hotkey">p</span>
+                </li>
+                <li class="help-button">help
+                    <span class="main-nav-hotkey">h</span>
+                </li>
+                <li class="user-menu">user menu
+                    <span class="main-nav-hotkey">u</span>
+                </li>
+                <li class="username">username</li>
+                <li><img id="user-img" src="img/user.jpg" alt="User Image"></li>
+            </ul>
+        </nav>
+    </script>
+
+    <!-- #caret-left-template -->
+    <script type="text/template" id="caret-left-template">
+        <ul>
+            <li class="multis-caret-left">
+                <img src="img/caret_left.gif" alt="" />
+            </li>
+            <li class="multis-caret-right">
+                <img src="img/caret_right.gif" alt="" />
+            </li>
+        </ul>
+    </script>
+
+    <!-- #all-items-scanned-template -->
+    <script type="text/template" id="all-items-scanned-template">
+        <div id="multis-all-items-scanned" class="multis-all-items-scanned hidden">
+            <img src="img/checkmark_small.png" alt="" />
+            All items have been scanned
+        </div>
+    </script>
+
+    <!-- #items-failed-template -->
+    <script type="text/template" id="items-failed-template">
+        <div id="multis-all-items-failed" class="multis-all-items-failed hidden">
+            This shipment has failed
+        </div>
+    </script>
+
+    <!-- #unscanned-items-list-template -->
+    <script type="text/template" id="unscanned-items-list-template">
+        <% _.each(items, function(item) { %>
+            <li><%= item.get('title') %></li>
+        <% }); %>
+    </script>
+
+    <!-- #scanned-items-list-template -->
+    <script type="text/template" id="scanned-items-list-template">
+        <li><%= title %></li>
+    </script>
+
+    <!-- #scan-spoo-template -->
+    <script type="text/template" id="scan-spoo-template">
+        <h4 id="multis-spoo-unscanned" class="required">
+            <span>Scan SP00 Label</span>
+        </h4>
+    </script>
+
+    <!-- #spoo-scanned-template -->
+    <script type="text/template" id="spoo-scanned-template">
+        <h4 id="multis-spoo-scanned" class="scanned hidden">
+            <span>SP012345<br />Scanned</span>
+        </h4>
+    </script>
+
+    <!-- #shipment-complete-template -->
+    <script type="text/template" id="shipment-complete-template">
+        <div id="multis-shipment-complete" class="multis-complete multis-confirmation">
+            Shipment Complete
+            <h6>SP00</h6>
+            <p>sp027489219</p>
+            <h5>After the items are packed, place the shipment on the conveyor</h5>
+        </div>
+    </script>
+
+    <!-- #shipment-failed-template -->
+    <script type="text/template" id="shipment-failed-template">
+        <div id="multis-shipment-failed" class="multis-failed multis-confirmation">
+            Shipment marked as damaged
+            <h6>SLOT</h6>
+            <p>C-1</p>
+        </div>
+    </script>
+
+    <!-- #last-shipment-complete-template -->
+    <script type="text/template" id="last-shipment-complete-template">
+        <div id="last-shipment-complete-container" class="last-shipment-container multis-container-bottom container">
+            <div class="last-shipment-complete-info">
+                <div class="multis-complete multis-confirmation">
+                    Last Shipment Complete
+                    <h6>SP00</h6>
+                    <p>sp027489219</p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- #last-shipment-failed-template -->
+    <script type="text/template" id="last-shipment-failed-template">
+        <div id="last-shipment-failed-container" class="last-shipment-container multis-container-bottom container">
+            <div class="last-shipment-complete-info">
+                <div id="last-shipment-failed" class="multis-failed multis-confirmation">
+                    Last Shipment Failed
+                    <h6>SLOT</h6>
+                    <p>C-6</p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="items-view-template">
+        <header class="rounded-top-corners-small">
+            <span id="multis-tote-items-number" class="multis-tote-items-number"><%= (mode === 'scanCart' || unscanned.length < 1) ? '' : unscanned.length %></span>
+            Items to Scan
+        </header>
+        <% if (mode === 'scanCart') { %>
+            <div class="scan-cart">Scan Cart</div>
+            <div id="multis-items-container" class="multis-items">
+                <% } else if (mode === 'scanning') { %>
+                    <div id="multis-active-item-container" class="multis-active-item-container">Scan an item to pack</div>
+                    <ol id="multis-unscanned-items-list" class="multis-unscanned-items-list">
+                        <% _.each(unscanned, function(item, i) { %>
+                            <li><%= item.get('title') %></li>
+                        <% }); %>
+                    </ol>
+                    <ol id="multis-scanned-items-list" class="multis-scanned-items-list">
+                        <% _.each(scanned, function(item, i) { %>
+                            <li><%= item.get('title') %></li>
+                        <% }); %>
+                    </ol>
+                <% } else if (mode === 'slotItemsComplete') { %>
+                    <div id="multis-all-items-scanned" class="multis-all-items-scanned">
+                        <img src="img/checkmark_small.png" alt="" />
+                        All items have been scanned
+                    </div>
+                    <ol id="multis-scanned-items-list" class="multis-scanned-items-list">
+                        <% _.each(scanned, function(item, i) { %>
+                        <li><%= item.get('title') %></li>
+                        <% }); %>
+                    </ol>
+                <% } %>
+            </div>
+    </script>
+
+    <script type="text/template" id="shipment-template">
+        <%
+            var clsName = 'shipment-single-step';
+            if (steps.length === 2) clsName = 'shipment-double-step';
+            if (steps.length === 3) clsName = 'shipment-triple-step';
+        %>
+        <div class="<%= clsName %>">
+            <% _.each(steps, function(step) { %>
+            <h4 class="<%= step.get('type') %> <%= step.get('status') %>"><span><%= step.getText() %></span></h4>
+            <% }); %>
+        </div>
+    </script>
+
+    <!-- Load Libraries -->
+    <script src="js/vendor/jquery-2.0.3.min.js"></script>
+    <script src="js/vendor/underscore-min.js"></script>
+    <script src="js/vendor/backbone-min.js"></script>
+    <script src="js/pub-sub.js"></script>
+    <!-- Load Project Files -->
+    <script src="js/models/models.js"></script>
+    <script src="js/collections/collections.js"></script>
+    <script src="js/views/views.js"></script>
+    <script src="js/routers/routers.js"></script>
+    <script src="js/controllers/controllers.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
