@@ -180,12 +180,12 @@
     color: #FFF;
     font-size: 0.75em;
     text-align: center;
-    line-height: 25px;
+    line-height: 22px;
     border-radius: 3px;
     position: absolute;
     top: 50%;
-    left: 0;
-    margin: -1.1em 0 0; }
+    left: 20px;
+    margin: -0.85em 0 0; }
 
 .multis-items {
     width: 100%;

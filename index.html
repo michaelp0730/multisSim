@@ -130,66 +130,7 @@
         </ul>
     </script>
 
-    <!-- #all-items-scanned-template -->
-    <script type="text/template" id="all-items-scanned-template">
-        <div id="multis-all-items-scanned" class="multis-all-items-scanned hidden">
-            <img src="img/checkmark_small.png" alt="" />
-            All items have been scanned
-        </div>
-    </script>
-
-    <!-- #items-failed-template -->
-    <script type="text/template" id="items-failed-template">
-        <div id="multis-all-items-failed" class="multis-all-items-failed hidden">
-            This shipment has failed
-        </div>
-    </script>
-
-    <!-- #unscanned-items-list-template -->
-    <script type="text/template" id="unscanned-items-list-template">
-        <% _.each(items, function(item) { %>
-            <li><%= item.get('title') %></li>
-        <% }); %>
-    </script>
-
-    <!-- #scanned-items-list-template -->
-    <script type="text/template" id="scanned-items-list-template">
-        <li><%= title %></li>
-    </script>
-
-    <!-- #scan-spoo-template -->
-    <script type="text/template" id="scan-spoo-template">
-        <h4 id="multis-spoo-unscanned" class="required">
-            <span>Scan SP00 Label</span>
-        </h4>
-    </script>
-
-    <!-- #spoo-scanned-template -->
-    <script type="text/template" id="spoo-scanned-template">
-        <h4 id="multis-spoo-scanned" class="scanned hidden">
-            <span>SP012345<br />Scanned</span>
-        </h4>
-    </script>
-
-    <!-- #shipment-complete-template -->
-    <script type="text/template" id="shipment-complete-template">
-        <div id="multis-shipment-complete" class="multis-complete multis-confirmation">
-            Shipment Complete
-            <h6>SP00</h6>
-            <p>sp027489219</p>
-            <h5>After the items are packed, place the shipment on the conveyor</h5>
-        </div>
-    </script>
-
-    <!-- #shipment-failed-template -->
-    <script type="text/template" id="shipment-failed-template">
-        <div id="multis-shipment-failed" class="multis-failed multis-confirmation">
-            Shipment marked as damaged
-            <h6>SLOT</h6>
-            <p>C-1</p>
-        </div>
-    </script>
-
+    <!-- #items-view-template -->
     <script type="text/template" id="items-view-template">
         <header class="rounded-top-corners-small">
             <span id="multis-tote-items-number" class="multis-tote-items-number"><%= (mode === 'scanCart' || unscannedLength < 1) ? '' : unscannedLength %></span>
@@ -207,7 +148,7 @@
                             count = unscanned[asin].count;
                             item = unscanned[asin].model;
                         %>
-                            <li><%= (count > 1) ? '<span>' + count + '</span>' : '' %><%= item.get('title') %></li>
+                            <li><%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %><%= item.get('title') %></li>
                         <% } %>
                     </ol>
                     <ol id="multis-scanned-items-list" class="multis-scanned-items-list">
@@ -217,7 +158,7 @@
                             count = scanned[asin].count;
                             item = scanned[asin].model;
                         %>
-                            <li><%= (count > 1) ? '<span>' + count + '</span>' : '' %><%= item.get('title') %></li>
+                            <li><%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %><%= item.get('title') %></li>
                         <% } %>
                     </ol>
                 <% } else if (mode === 'slotItemsComplete') { %>
@@ -232,7 +173,7 @@
                             count = scanned[asin].count;
                             item = scanned[asin].model;
                         %>
-                            <li><%= (count > 1) ? '<span>' + count + '</span>' : '' %><%= item.get('title') %></li>
+                            <li><%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %><%= item.get('title') %></li>
                         <% } %>
                     </ol>
                 <% } %>
