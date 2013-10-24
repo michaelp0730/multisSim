@@ -101,24 +101,62 @@ app.ProcessView = Backbone.View.extend({
 // Slot view
 app.SlotView = Backbone.View.extend({
     el: $('#multis-slot-recommendation'),
-    template: _.template('<h1 class="slot-<%= id.substring(0, 1) %>" id="multis-slot"><%= id %></h1>'),
+    template: _.template('<h1 class="<%= (inactive) ? \'direction-faded\' : \'slot-\' + id.substring(0, 1) %>" id="multis-slot"><%= id %></h1>'),
+    initialize: function() {
+        this.listen();
+        this.inactive = false;
+    },
+    setModel: function(model) {
+        this.slotHeight = $('#multis-slot-recommendation').height();
+        this.model = model;
+        this.inactive = false;
+    },
     render: function() {
-        var model = this.model;
+        var view = this,
+            model = this.model;
         this.$el.html(this.template({
-            id: model.get('id')
+            id: model.get('id'),
+            inactive: view.inactive
         }));
+        $('#multis-slot').css({lineHeight: this.slotHeight + 'px'});
+    },
+    listen: function() {
+        var view = this;
+        $.subscribe('item.scanned', function() {
+            view.inactive = true;
+            view.render();
+        });
     }
 });
 
 // Boxrec view
 app.BoxRecView = Backbone.View.extend({
     el: $('#multis-box-recommendation'),
-    template: _.template('<h1 class="br-<%= boxRec %>" id="multis-box"><%= boxRec %></h1>'),
+    template: _.template('<h1 class="<%= (inactive) ? \'direction-faded\' : \'br-\' + boxRec %>" id="multis-box"><%= boxRec %></h1>'),
+    initialize: function() {
+        this.listen();
+        this.inactive = false;
+    },
+    setModel: function(model) {
+        this.boxRecHeight = $('#multis-box-recommendation').height();
+        this.model = model;
+        this.inactive = false;
+    },
     render: function() {
-        var model = this.model;
+        var view = this,
+            model = this.model;
         this.$el.html(this.template({
-            boxRec: model.get('boxRec')
+            boxRec: model.get('boxRec'),
+            inactive: view.inactive
         }));
+        $('#multis-box').css({lineHeight: this.boxRecHeight + 'px'});
+    },
+    listen: function() {
+        var view = this;
+        $.subscribe('item.scanned', function() {
+            view.inactive = true;
+            view.render();
+        });
     }
 });
 
@@ -166,15 +204,17 @@ app.ItemsView = Backbone.View.extend({
             // Render scannable UI
             this.$el.html(this.template({
                 mode: 'scanning',
-                unscanned: view.unscanned.models,
-                scanned: view.scanned.models
+                unscanned: view.unscanned.getCountByAsin(),
+                scanned: view.scanned.getCountByAsin(),
+                unscannedLength: view.unscanned.length
             }));
         } else if(this.scanned.length > 0 && this.unscanned.length === 0) {
             // Render Slot Items complete UI
             this.$el.html(this.template({
                 mode: 'slotItemsComplete',
-                unscanned: view.unscanned.models,
-                scanned: view.scanned.models
+                unscanned: view.unscanned.getCountByAsin(),
+                scanned: view.scanned.getCountByAsin(),
+                unscannedLength: 0
             }));
         } else {
             this.$el.html(this.template({
@@ -196,8 +236,6 @@ app.ItemsView = Backbone.View.extend({
                 } else if (view.active === true) {
                     var validItems = view.unscanned.where({asin: scanValue}),
                         scannedItem;
-                    $('#multis-slot').removeClass().addClass('direction-faded');
-                    $('#multis-box').removeClass().addClass('direction-faded');
 
                     if (validItems.length > 0) {
                         scannedItem = validItems.shift();
@@ -225,6 +263,7 @@ app.ShipmentStepsView = Backbone.View.extend({
     initialize: function() {
         this.active = false;
         this.actions = [];
+        this.offset = 0;
         this.listen();
     },
     setModel: function(model) {
@@ -249,15 +288,17 @@ app.ShipmentStepsView = Backbone.View.extend({
                         type: "pslip",
                         status: "inactive",
                         text: {
-                            "inactive": "PSLIP INACTIVE",
-                            "active": "PSLIP ACTIVE",
-                            "complete": "PSLIP COMPLETE"
+                            "inactive": "PSLIP Required",
+                            "active": "Scan PSLIP",
+                            "complete": "PSLIP Scanned"
                         }
                     });
                     break;
             }
         }
-
+        if (this.actions.length === 1) {
+            this.offset = 20;
+        }
         this.render();
     },
     render: function() {
@@ -269,14 +310,21 @@ app.ShipmentStepsView = Backbone.View.extend({
             spooStep: this.spoo,
             steps: view.actions
         }));
+
+        var shipmentDblStepHeight = $('.shipment-double-step').height();
+        $('.shipment-double-step h4').height( (shipmentDblStepHeight - this.offset) / 2 );
     },
     activate: function() {
         this.active = true;
         if (this.actions.length === 0) {
             this.spoo.set('status', 'active');
         } else {
-            var incompleteActions = this.actions.where({ status: "inactive" });
-            this.actions.where({ status: "active" })[0].set('status', 'complete');
+            var incompleteActions = this.actions.where({ status: "inactive" }),
+                active = this.actions.where({ status: "active" });
+
+            if (active.length > 0) {
+                active[0].set("status", "complete");
+            }
 
             if (incompleteActions.length > 0) {
                 incompleteActions[0].set('status', 'active');
@@ -293,6 +341,8 @@ app.ShipmentStepsView = Backbone.View.extend({
     listen: function() {
         var view = this,
             model = this.model;
+            //shipmentDblStepHeight = $('.shipment-double-step').height();
+        //console.log(shipmentDblStepHeight);
 
         $('#scanner-input').on('keypress', function(e) {
             if (view.active === true) {
@@ -304,8 +354,9 @@ app.ShipmentStepsView = Backbone.View.extend({
                         // SP00 scanned
                         $.publish('slot.complete', [val]);
                     } else {
-                        // Invalid SP00
+                        // Something else
                         view.activate();
+                        view.render();
                     }
                 }
             }

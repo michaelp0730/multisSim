@@ -1,6 +1,6 @@
 [
     {
-        "actions" : { },
+        "actions" : { "PSLIP" : "true" },
         "boxRec" : "1A5",
         "id" : "F1",
         "items" : [

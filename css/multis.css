@@ -27,8 +27,8 @@
     color: #fff; }
 
 .br-V4 {
-    background-color: #000;
-    color: #fff; }
+    background-color: #f1603c;
+    color: #000; }
 
 .br-1A7 {
     background-color: #dbb306;
@@ -325,12 +325,18 @@ h4.spoo.complete, .multis-complete {
     color: #FFF; }
 
 /* Shipment Steps */
-.shipment-single-step {
+.shipment-single-step, .shipment-double-step {
     position: absolute;
     top: 20px;
     right: 20px;
     bottom: 20px;
     left: 20px; }
+
+.shipment-double-step h4 {
+    height: 50%; }
+
+.shipment-double-step h4:first-child {
+    margin-bottom: 20px; }
 
 .last-shipment-complete-info {
     position: absolute;

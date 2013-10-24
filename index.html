@@ -192,7 +192,7 @@
 
     <script type="text/template" id="items-view-template">
         <header class="rounded-top-corners-small">
-            <span id="multis-tote-items-number" class="multis-tote-items-number"><%= (mode === 'scanCart' || unscanned.length < 1) ? '' : unscanned.length %></span>
+            <span id="multis-tote-items-number" class="multis-tote-items-number"><%= (mode === 'scanCart' || unscannedLength < 1) ? '' : unscannedLength %></span>
             Items to Scan
         </header>
         <% if (mode === 'scanCart') { %>
@@ -201,14 +201,24 @@
                 <% } else if (mode === 'scanning') { %>
                     <div id="multis-active-item-container" class="multis-active-item-container">Scan an item to pack</div>
                     <ol id="multis-unscanned-items-list" class="multis-unscanned-items-list">
-                        <% _.each(unscanned, function(item, i) { %>
-                            <li><%= item.get('title') %></li>
-                        <% }); %>
+                        <%
+                        var count, item;
+                        for (var asin in unscanned) {
+                            count = unscanned[asin].count;
+                            item = unscanned[asin].model;
+                        %>
+                            <li><%= (count > 1) ? '<span>' + count + '</span>' : '' %><%= item.get('title') %></li>
+                        <% } %>
                     </ol>
                     <ol id="multis-scanned-items-list" class="multis-scanned-items-list">
-                        <% console.log(scanned); _.each(scanned, function(item, i) { %>
-                            <li><%= item.get('title') %></li>
-                        <% }); %>
+                        <%
+                        var count, item;
+                        for (var asin in scanned) {
+                            count = scanned[asin].count;
+                            item = scanned[asin].model;
+                        %>
+                            <li><%= (count > 1) ? '<span>' + count + '</span>' : '' %><%= item.get('title') %></li>
+                        <% } %>
                     </ol>
                 <% } else if (mode === 'slotItemsComplete') { %>
                     <div id="multis-all-items-scanned" class="multis-all-items-scanned">
@@ -216,9 +226,14 @@
                         All items have been scanned
                     </div>
                     <ol id="multis-scanned-items-list" class="multis-scanned-items-list">
-                        <% _.each(scanned, function(item, i) { %>
-                        <li><%= item.get('title') %></li>
-                        <% }); %>
+                        <%
+                        var count, item;
+                        for (var asin in scanned) {
+                            count = scanned[asin].count;
+                            item = scanned[asin].model;
+                        %>
+                            <li><%= (count > 1) ? '<span>' + count + '</span>' : '' %><%= item.get('title') %></li>
+                        <% } %>
                     </ol>
                 <% } %>
             </div>

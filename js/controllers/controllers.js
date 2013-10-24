@@ -24,6 +24,10 @@ var app = app || {},
 
     lastShipment = new app.LastShipmentView(),
 
+    slotView = new app.SlotView(),
+
+    boxRecView = new app.BoxRecView(),
+
     slotView, boxRecView,
 
     loadSlot = function() {
@@ -40,13 +44,9 @@ var app = app || {},
     Initialization
 */
     init = function(model) {
-        slotView = new app.SlotView({
-            model: model
-        });
+        boxRecView.setModel(model);
 
-        boxRecView = new app.BoxRecView({
-            model: model
-        });
+        slotView.setModel(model);
 
         itemsView.setModel(model);
 
@@ -76,9 +76,6 @@ function initializeSlotView() {
 
     slotView.render();
     boxRecView.render();
-    var slotHeight = $('#multis-slot-recommendation').height();
-    $('#multis-slot').css({lineHeight: slotHeight + 'px'});
-    $('#multis-box').css({lineHeight: slotHeight + 'px'});
     caretLeftView.show();
     shipmentStepsView.render();
 }
@@ -108,6 +105,6 @@ $.subscribe('slot.complete', function(e, spoo) {
     itemsView.render();
     lastShipment.render(spoo);
     var slotHeight = $('#multis-slot-recommendation').height();
-    $('#multis-slot').removeClass().addClass('slot-red').css({lineHeight: slotHeight + 'px'});
-    $('#multis-box').removeClass().addClass('boxrec-purple').css({lineHeight: slotHeight + 'px'});
+    $('#multis-slot').css({lineHeight: slotHeight + 'px'});
+    $('#multis-box').css({lineHeight: slotHeight + 'px'});
 });
