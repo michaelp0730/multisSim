@@ -1,15 +1,15 @@
 /* Multis Styles */
 
 /* Multis Slot classes */
-.slot-red {
+.slot-red, .slot-F {
     color: #FFF;
     background-color: #be001b; }
 
-.slot-grey {
+.slot-grey, .slot-E {
     color: #403e3d;
     background-color: #cccccc; }
 
-.slot-blue {
+.slot-blue, .slot-D {
     color: #FFF;
     background-color: #3284c9; }
 
@@ -20,6 +20,37 @@
 .slot-purple {
     color: #cccccc;
     background-color: #7c53e4; }
+
+/* BoxRec Color Classes */
+.br-1A5 {
+    background-color: #0a3093;
+    color: #fff; }
+
+.br-V4 {
+    background-color: #000;
+    color: #fff; }
+
+.br-1A7 {
+    background-color: #dbb306;
+    color: #000; }
+
+.br-K3 {
+    background-color: #c461b2;
+    color: #fff; }
+
+.br-N3 {
+    background-color: #2baf1b;
+    color: #fff; }
+
+.br-1A1 {
+    background-color: #902825;
+    color: #fff; }
+
+.br-A3 {
+    background-color: #000;
+    color: #fff; }
+
+/* End Color Classes */
 
 #multisScreen {
     display: none;

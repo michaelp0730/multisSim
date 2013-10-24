@@ -101,7 +101,7 @@ app.ProcessView = Backbone.View.extend({
 // Slot view
 app.SlotView = Backbone.View.extend({
     el: $('#multis-slot-recommendation'),
-    template: _.template('<h1 id="multis-slot"><%= id %></h1>'),
+    template: _.template('<h1 class="slot-<%= id.substring(0, 1) %>" id="multis-slot"><%= id %></h1>'),
     render: function() {
         var model = this.model;
         this.$el.html(this.template({
@@ -113,7 +113,7 @@ app.SlotView = Backbone.View.extend({
 // Boxrec view
 app.BoxRecView = Backbone.View.extend({
     el: $('#multis-box-recommendation'),
-    template: _.template('<h1 id="multis-box"><%= boxRec %></h1>'),
+    template: _.template('<h1 class="br-<%= boxRec %>" id="multis-box"><%= boxRec %></h1>'),
     render: function() {
         var model = this.model;
         this.$el.html(this.template({

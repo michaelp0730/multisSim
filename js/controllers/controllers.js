@@ -77,8 +77,8 @@ function initializeSlotView() {
     slotView.render();
     boxRecView.render();
     var slotHeight = $('#multis-slot-recommendation').height();
-    $('#multis-slot').addClass('slot-red').css({lineHeight: slotHeight + 'px'});
-    $('#multis-box').addClass('boxrec-purple').css({lineHeight: slotHeight + 'px'});
+    $('#multis-slot').css({lineHeight: slotHeight + 'px'});
+    $('#multis-box').css({lineHeight: slotHeight + 'px'});
     caretLeftView.show();
     shipmentStepsView.render();
 }
