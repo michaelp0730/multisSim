@@ -119,10 +119,6 @@ app.BoxRecView = Backbone.View.extend({
         this.$el.html(this.template({
             boxRec: model.get('boxRec')
         }));
-        // Change the class on the BoxRec after 3 seconds
-        window.setTimeout(function() {
-            $('#multis-box').removeClass().addClass('direction-faded');
-        }, 3000);
     }
 });
 
@@ -201,6 +197,7 @@ app.ItemsView = Backbone.View.extend({
                     var validItems = view.unscanned.where({asin: scanValue}),
                         scannedItem;
                     $('#multis-slot').removeClass().addClass('direction-faded');
+                    $('#multis-box').removeClass().addClass('direction-faded');
 
                     if (validItems.length > 0) {
                         scannedItem = validItems.shift();
