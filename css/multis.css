@@ -253,7 +253,7 @@ h4.pslip.inactive, h4.spoo.inactive, .boxrec-light {
     border: none;
     border-radius: 5px; }
 
-h4.spoo.complete {
+h4.spoo.complete, .multis-complete {
     background-color: #5a9952;
     color: #FFF; }
 
@@ -310,9 +310,13 @@ h4.spoo.complete {
     padding: 20px; }
 
 .last-shipment-container {
-    height: 150px;
+    height: 150px; }
+
+.mutis-container-bottom {
+    width: 100%;
     position: absolute;
     bottom: 0;
+    overflow-y: hidden;
 }
 
 .multis-pslip-complete {
