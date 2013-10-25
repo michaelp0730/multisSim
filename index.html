@@ -94,17 +94,48 @@
                 </div>
             </div>
         </section> <!-- #multis-item-info -->
+
+        <!-- Modals container -->
+        <div id="multis-modal-container">
+            <div class="modal-bg"></div>
+
+            <div id="scan-pslip" class="modal-container2 scan-pslip">
+                <header id="scan-pslip-header" class="exception-modal-header container-header">Attention</header>
+                <div class="padding125">
+                    <div id="scan-pslip-warning-label" class="warning-label-container problem-resolution-label">Scan PSLIP</div>
+                    <div class="modal-image three-steps"><img src="img/modal_ScanPSLIP.jpg" alt="" /></div>
+                    <p id="scan-pslip-warning-message" class="warning-message">This shipment needs a Packing Slip (PSLIP). Get the PSLIP from your printer, scan it, and put it in the box.</p>
+                    <p id="scan-pslip-warning-message-2" class="warning-message">If your PSLIP didn't print, use the Can't Print PSLIP (a) problem in the Problem Menu (p) to report it, and turn on your Andon light to call a problem solver.</p>
+                    <div class="scan-pslip-box-container">
+                        <h6 id="scan-pslip-boxrec-label" class="modal-text-label">Box Recommendation</h6>
+                        <span id="scan-pslip-boxrec" class="modal-box-recommendation step-orange"></span>
+                    </div>
+                    <div class="scan-pslip-status-container">
+                        <h6>Status</h6>
+                        <p class="error-text">Waiting for scan...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="activation-modal" class="modal-container2 serial-scan">
+                <header id="serial-scan-header" class="exception-modal-header container-header">Attention</header>
+                <div class="padding125">
+                    <div id="serial-scan-label" class="warning-label-container">Scan serial number</div>
+                    <div class="modal-image two-steps"><img src="img/modal_ActivationScan.jpg" alt="" /></div>
+                    <p id="serial-scan-text" class="warning-message">You need to scan 1 barcode for this item.</p>
+                    <h6 class="modal-text-label">Item</h6>
+                    <p class="exception-title-text">Product name</p>
+                    <h6 class="modal-text-label">Status</h6>
+                    <p class="scan-status-text error-text">Waiting for scan...</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Modals container -->
+
+    <!-- End Multis main wrapper -->
     </div>
 
-    <div class="modal-bg"></div>
-    <div id="activation-modal" class="modal-container2 serial-scan">
-        <header id="serial-scan-header" class="exception-modal-header container-header">Attention</header>
-        <div class="padding125">
-            <div id="serial-scan-label" class="warning-label-container">Scan serial number</div>
-            <div class="modal-image two-steps"><img src="/fcpack/img/modal_ActivationScan.jpg" alt="" /></div>
-        </div>
-    </div>
-    <!-- End Multis main wrapper -->
+
 
     <!-- #main-header-template -->
     <script type="text/template" id="main-header-template">
