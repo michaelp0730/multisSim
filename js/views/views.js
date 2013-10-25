@@ -350,6 +350,11 @@ app.ShipmentStepsView = Backbone.View.extend({
                     if (val.match(/^sp/i) && view.spoo.get('status') === 'active') {
                         // SP00 scanned
                         $.publish('slot.complete', [val]);
+                        app.utils.Modal.hide();
+                    } else if ( !(val.match(/^sp/i)) && view.spoo.get('status') === 'active' ) {
+                        app.utils.Modal.show('#invalid-spoo-modal', '#modal-invalid-spoo-template', {
+                            scanVal: val
+                        });
                     } else if (val.match(/^pslip/i)) {
                         // Something else
                         view.activate();
