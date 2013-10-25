@@ -201,10 +201,7 @@ input[type="search"] {
     box-sizing: content-box;
     -webkit-appearance: textfield;
 }
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-}
+
 img {
     width: auto;
     height: auto;
@@ -1176,7 +1173,7 @@ cite {
 #slider-vertical {
     width: 70%;
     height: 337px;
-    background: transparent url("../img/slide_trans.png") top center repeat-y;
+    /*background: transparent url("../img/slide_trans.png") top center repeat-y;*/
     position: relative;
     left: 15%;
 }
@@ -1795,7 +1792,7 @@ ol.modal-instructions-list li {
     position:relative;
 }
 .modal-image img {
-    image-rendering:optimizeQuality;
+    image-rendering: optimizeQuality;
     position:relative;
     z-index:100;
 }
@@ -1924,16 +1921,6 @@ ol.modal-instructions-list li {
     background-color: #000;
     top: 20px; }
 
-/* Images in Modals*/
-.modal-image {
-    margin-bottom:2em;
-    position:relative;
-}
-.modal-image img {
-    image-rendering:optimizeQuality;
-    position:relative;
-    z-index:100;
-}
 /* overwrite for now : remove border-radius on modal color boxes */
 .warning-label-container { border-radius:0; }
 
