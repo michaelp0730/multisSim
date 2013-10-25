@@ -103,6 +103,8 @@
 
             <div id="scan-pslip" class="modal-container2 scan-pslip"></div>
 
+            <div id="invalid-spoo-modal" class="modal-container2"></div>
+
             <div id="activation-modal" class="modal-container2 serial-scan">
                 <header id="serial-scan-header" class="exception-modal-header container-header">Attention</header>
                 <div class="padding125">
@@ -149,6 +151,20 @@
             <p id="invalid-tote-text" class="warning-message">The computer was expecting a cart to be scanned. Scan a cart to continue. If you get this message again, call a Problem Solver.</p>
             <p class="modal-text-label barcode-label">Barcode</p>
             <p class="exception-title-text invalid-spoo-barcode"><%= scanVal %></p>
+        </div>
+    </script>
+
+    <!-- #modal-invalid-spoo-template -->
+    <script type="text/template" id="modal-invalid-spoo-template">
+        <header id="scan-spoo-header" class="exception-modal-header container-header">Attention</header>
+        <div class="padding125">
+            <div id="invalid-spoo-label-container" class="warning-label-container recoverable-exception-label">Scan a SP00 Label</div>
+            <div class="modal-image three-steps"><img src="img/modal_ScanSP00.jpg" alt="" /></div>
+            <p id="invalid-spoo-text-1" class="warning-message">The computer was expecting you to scan a SP00 label, but the barcode you scanned wasn’t recognized as a SP00.</p>
+            <p id="invalid-spoo-text-2" class="warning-message">If you still have the shipment, scan a SP00 to continue.</p>
+            <p id="invalid-spoo-text-3" class="warning-message">If the shipment was sent down the line without a SP00, use the Forgot SP00 (g) problem in the Problem menu (p) to report it.</p>
+            <p class="modal-text-label">Barcode</p>
+            <p class="exception-title-text invalid-spoo-barcode"></p>
         </div>
     </script>
 
