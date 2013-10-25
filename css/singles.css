@@ -1505,10 +1505,9 @@ h6.modal-text-label:last-child {
 .scan-pslip-status-container {
     display: inline-block;
     height: 105px;
-    margin-top: -14px;
 }
 .scan-pslip-status-container h6 {
-    margin-bottom: 30px;
+    margin-bottom: 16px;
 }
 .alert-modal .warning-label-container {
     background-color: #f18a3e;
