@@ -231,6 +231,7 @@
     padding: 1em 0; }
 .multis-scanned-items-list li {
     padding: 0.75em 1.5em 0.75em 85px;
+    line-height: 1.5;
     position: relative; }
 .multis-scanned-items-list .item-count-multis {
     left: 20px; }
@@ -262,7 +263,7 @@
     top: 50%;
     left: 0;
     margin-top: -0.5em;
-    padding: 0 5pxem; }
+    padding: 0 5px; }
 
 .multis-2-steps h4 {
     height: 46%;
@@ -380,6 +381,7 @@ h4.pslip.complete, h4.spoo.complete, .multis-complete {
     line-height: 1.25em; }
 
 .activated {
+    float: right;
     background-color: #ada9a6;
     color: #FFF;
     font-size: 0.75em;
@@ -387,11 +389,7 @@ h4.pslip.complete, h4.spoo.complete, .multis-complete {
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 3px;
-    margin: -0.9em 0 1em;
-    padding: 0.35em 0.75em 0.05em;
-    position: absolute;
-    top: 50%;
-    right: 0.75em; }
+    padding: 0.35em 0.75em; }
 
 .cart-complete-container {
     width: 71.25%;

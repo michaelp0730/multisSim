@@ -232,7 +232,11 @@
                             count = scanned[asin].count;
                             item = scanned[asin].model;
                         %>
-                            <li><%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %><%= item.get('title') %></li>
+                            <li>
+                                <%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %>
+                                <%= (item.get('actions').activation !== undefined) ? '<span class="activated">Activated</span>' : '' %>
+                                <%= item.get('title') %>
+                            </li>
                         <% } %>
                     </ol>
                 <% } else if (mode === 'slotItemsComplete') { %>
@@ -247,7 +251,11 @@
                             count = scanned[asin].count;
                             item = scanned[asin].model;
                         %>
-                            <li><%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %><%= item.get('title') %></li>
+                        <li>
+                            <%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %>
+                            <%= (item.get('actions').activation !== undefined) ? '<span class="activated">Activated</span>' : '' %>
+                            <%= item.get('title') %>
+                        </li>
                         <% } %>
                     </ol>
                 <% } %>

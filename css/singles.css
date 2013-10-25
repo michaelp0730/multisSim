@@ -1441,7 +1441,7 @@ li.prob-item-unavailable p {
     margin: 3em 0 0 32px;
 }
 .exception-title-text {
-    width: 450px;
+    width: 850px;
     float: left;
     color: #2c82cc;
     margin: 0 0 2em 32px;
@@ -1792,7 +1792,7 @@ ol.modal-instructions-list li {
     position:relative;
 }
 .modal-image img {
-    image-rendering: optimizeQuality;
+    image-rendering: auto;
     position:relative;
     z-index:100;
 }
