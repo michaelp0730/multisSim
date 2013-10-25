@@ -180,7 +180,7 @@
     color: #FFF;
     font-size: 0.75em;
     text-align: center;
-    line-height: 20px;
+    line-height: 22px;
     border-radius: 3px;
     position: absolute;
     top: 50%;
@@ -418,3 +418,45 @@ h4.pslip.complete, h4.spoo.complete, .multis-complete {
 .cart-complete p {
     font-size: 0.875em;
     margin-bottom: 20px; }
+
+
+/* Cart Complete */
+.cart-complete-wrapper > span {
+    border-radius: 5px;
+    background-color: #5a9952;
+    color: #FFF;
+    position: relative;
+    padding: 30px 20px; }
+
+.cart-complete-column-left {
+    float: left;
+    width: 73.5%;
+    height: 100%;
+    margin-right: 1.5%; }
+
+.cart-complete-column-right {
+    float: right;
+    width: 25%; }
+
+.cart-complete-wrapper h1 {
+    font-size: 96px;
+    width: 55%;
+    line-height: 1.0;
+    margin: 25px 0 70px; }
+
+.cart-complete-wrapper h3 {
+    font-size: 38px;
+    line-height: 1.25;
+    margin: 15px 0 70px 0; }
+
+.cart-complete-wrapper h4 {
+    font-family: "Roboto-Light", Helvetica, Arial, sans-serif;
+    font-size: 32px; }
+
+.cart-complete-wrapper h6 {
+    font-size: 1em;
+    color: #fff;
+    margin-bottom: 10px; }
+
+.cart-complete-wrapper p {
+    font-family: "Roboto-Light", Helvetica, Arial, sans-serif; }
