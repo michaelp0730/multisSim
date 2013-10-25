@@ -274,8 +274,7 @@ app.ShipmentStepsView = Backbone.View.extend({
             text: {
                 "inactive": "SP00 Label Required",
                 "active": "Scan SP00 Label",
-                "complete": "Shipment Complete",
-                "completeMsg": "After the items are packed, place the shipment on the conveyor."
+                "complete": "Shipment Complete"
             }
         });
 
@@ -353,7 +352,7 @@ app.ShipmentStepsView = Backbone.View.extend({
                     if (val.match(/^sp/i) && view.spoo.get('status') === 'active') {
                         // SP00 scanned
                         $.publish('slot.complete', [val]);
-                    } else {
+                    } else if (val.match(/^pslip/i)) {
                         // Something else
                         view.activate();
                         view.render();
