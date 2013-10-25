@@ -99,23 +99,7 @@
         <div id="multis-modal-container">
             <div class="modal-bg"></div>
 
-            <div id="scan-pslip" class="modal-container2 scan-pslip">
-                <header id="scan-pslip-header" class="exception-modal-header container-header">Attention</header>
-                <div class="padding125">
-                    <div id="scan-pslip-warning-label" class="warning-label-container problem-resolution-label">Scan PSLIP</div>
-                    <div class="modal-image three-steps"><img src="img/modal_ScanPSLIP.jpg" alt="" /></div>
-                    <p id="scan-pslip-warning-message" class="warning-message">This shipment needs a Packing Slip (PSLIP). Get the PSLIP from your printer, scan it, and put it in the box.</p>
-                    <p id="scan-pslip-warning-message-2" class="warning-message">If your PSLIP didn't print, use the Can't Print PSLIP (a) problem in the Problem Menu (p) to report it, and turn on your Andon light to call a problem solver.</p>
-                    <div class="scan-pslip-box-container">
-                        <h6 id="scan-pslip-boxrec-label" class="modal-text-label">Box Recommendation</h6>
-                        <span id="scan-pslip-boxrec" class="modal-box-recommendation step-orange"></span>
-                    </div>
-                    <div class="scan-pslip-status-container">
-                        <h6>Status</h6>
-                        <p class="error-text">Waiting for scan...</p>
-                    </div>
-                </div>
-            </div>
+            <div id="scan-pslip" class="modal-container2 scan-pslip"></div>
 
             <div id="activation-modal" class="modal-container2 serial-scan">
                 <header id="serial-scan-header" class="exception-modal-header container-header">Attention</header>
@@ -136,6 +120,24 @@
     </div>
 
 
+    <!-- Begin modal templates -->
+    <script type="text/template" id="modal-pslip-template">
+        <header id="scan-pslip-header" class="exception-modal-header container-header">Attention</header>
+        <div class="padding125">
+            <div id="scan-pslip-warning-label" class="warning-label-container problem-resolution-label">Scan PSLIP</div>
+            <div class="modal-image three-steps"><img src="img/modal_ScanPSLIP.jpg" alt="" /></div>
+            <p id="scan-pslip-warning-message" class="warning-message">This shipment needs a Packing Slip (PSLIP). Get the PSLIP from your printer, scan it, and put it in the box.</p>
+            <p id="scan-pslip-warning-message-2" class="warning-message">If your PSLIP didn't print, use the Can't Print PSLIP (a) problem in the Problem Menu (p) to report it, and turn on your Andon light to call a problem solver.</p>
+            <div class="scan-pslip-box-container">
+                <h6 id="scan-pslip-boxrec-label" class="modal-text-label">Box Recommendation</h6>
+                <span id="scan-pslip-boxrec" class="modal-box-recommendation br-<%= boxRec %>"><%= boxRec %></span>
+            </div>
+            <div class="scan-pslip-status-container">
+                <h6>Status</h6>
+                <p class="error-text">Waiting for scan...</p>
+            </div>
+        </div>
+    </script>
 
     <!-- #main-header-template -->
     <script type="text/template" id="main-header-template">
@@ -239,6 +241,7 @@
     <script src="js/vendor/underscore-min.js"></script>
     <script src="js/vendor/backbone-min.js"></script>
     <script src="js/pub-sub.js"></script>
+    <script src="js/utils.js"></script>
     <!-- Load Project Files -->
     <script src="js/models/models.js"></script>
     <script src="js/collections/collections.js"></script>

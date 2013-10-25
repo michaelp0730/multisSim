@@ -314,19 +314,30 @@ app.ShipmentStepsView = Backbone.View.extend({
         $('.shipment-double-step h4').height( (shipmentDblStepHeight - this.offset) / 2 );
     },
     activate: function() {
-        this.active = true;
+        var view = this,
+            model = this.model;
+
+        view.active = true;
         if (this.actions.length === 0) {
             this.spoo.set('status', 'active');
         } else {
             var incompleteActions = this.actions.where({ status: "inactive" }),
-                active = this.actions.where({ status: "active" });
+                active = this.actions.where({ status: "active" }),
+                nextAction;
 
             if (active.length > 0) {
+                app.utils.Modal.hide();
                 active[0].set("status", "complete");
             }
 
             if (incompleteActions.length > 0) {
-                incompleteActions[0].set('status', 'active');
+                nextAction = incompleteActions[0];
+                if (nextAction.get('type') === 'pslip') {
+                    app.utils.Modal.show('#scan-pslip', '#modal-pslip-template', {
+                        boxRec: model.get('boxRec')
+                    });
+                }
+                nextAction.set('status', 'active');
             } else {
                 this.spoo.set('status', 'active');
             }
