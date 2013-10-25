@@ -99,7 +99,7 @@
         <div id="multis-modal-container">
             <div class="modal-bg"></div>
 
-            <div id="invalid-tote-modal" class="modal-container2"></div>
+            <div id="invalid-cart-modal" class="modal-container2"></div>
 
             <div id="scan-pslip" class="modal-container2 scan-pslip"></div>
 
@@ -122,7 +122,7 @@
     </div>
 
 
-    <!-- Begin modal templates -->
+    <!-- #modal-pslip-template -->
     <script type="text/template" id="modal-pslip-template">
         <header id="scan-pslip-header" class="exception-modal-header container-header">Attention</header>
         <div class="padding125">
@@ -141,14 +141,14 @@
         </div>
     </script>
 
-    <script type="text/template" id="modal-invalid-tote-template">
-        <header class="exception-modal-header container-header">Packing Exception</header>
+    <!-- #modal-invalid-cart-template -->
+    <script type="text/template" id="modal-invalid-cart-template">
+        <header class="exception-modal-header container-header">Attention</header>
         <div class="padding125">
-            <div id="invalid-tote-label-container" class="warning-label-container recoverable-exception-label">Scan a tote</div>
-            <div class="modal-image two-steps"><img src="img/modal_ScanTote.jpg" alt="" /></div>
-            <p id="invalid-tote-text" class="warning-message">The computer was expecting a tote to be scanned. Scan a tote to continue. If you get this message again, call a Problem Solver.</p>
+            <div id="invalid-tote-label-container" class="warning-label-container recoverable-exception-label">Scan a cart</div>
+            <p id="invalid-tote-text" class="warning-message">The computer was expecting a cart to be scanned. Scan a cart to continue. If you get this message again, call a Problem Solver.</p>
             <p class="modal-text-label barcode-label">Barcode</p>
-            <p class="exception-title-text invalid-spoo-barcode"></p>
+            <p class="exception-title-text invalid-spoo-barcode"><%= scanVal %></p>
         </div>
     </script>
 

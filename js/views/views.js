@@ -39,22 +39,6 @@ app.BaseView = Backbone.View.extend({
     }
 });
 
-// Scan Cart view
-app.ScanCartView = Backbone.View.extend({
-    initialize: function() {
-        this.listen();
-    },
-    listen: function() {
-        var view = this;
-        $('#scanner-input').keypress(function(e) {
-            if (e.which === 13 && $(this).val() === 'SR2085' || e.which === 13 && $(this).val() === 'sr2085') {
-                $.publish('cart.scanned', e);
-            }
-            $('#scanner-input').val('');
-        });
-    }
-});
-
 // Main Header view
 app.MainHeaderView = Backbone.View.extend({
     el: $('#main-header'),
@@ -232,6 +216,11 @@ app.ItemsView = Backbone.View.extend({
                 if (view.active === false && view.mode !== 'complete') {
                     if (scanValue === "SR2085" || scanValue === "sr2085") {
                         $.publish('cart.scanned', [scanValue]);
+                        app.utils.Modal.hide();
+                    } else {
+                        app.utils.Modal.show('#invalid-cart-modal', '#modal-invalid-cart-template', {
+                            scanVal: $(this).val()
+                        });
                     }
                 } else if (view.active === true) {
                     var validItems = view.unscanned.where({asin: scanValue}),
