@@ -340,8 +340,6 @@ app.ShipmentStepsView = Backbone.View.extend({
     listen: function() {
         var view = this,
             model = this.model;
-            //shipmentDblStepHeight = $('.shipment-double-step').height();
-        //console.log(shipmentDblStepHeight);
 
         $('#scanner-input').on('keypress', function(e) {
             if (view.active === true) {
