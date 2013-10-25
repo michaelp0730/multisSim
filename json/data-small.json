@@ -1,0 +1,54 @@
+[
+    {
+        "actions" : { "PSLIP" : "true" },
+        "boxRec" : "1A5",
+        "id" : "F1",
+        "items" : [
+            {
+                "actions" : {
+                    "activation" : true
+                },
+                "asin" : "639277539656",
+                "demo" : {  },
+                "title" : "Turbo Football with a super really long extra long ridiculous title"
+            },
+            {
+                "actions" : {  },
+                "asin" : "B004L4EJPS",
+                "demo" : {  },
+                "title" : "One A Day Vitacraves"
+            },
+            {
+                "actions" : {  },
+                "asin" : "B004L4EJPS",
+                "demo" : {  },
+                "title" : "One A Day Vitacraves"
+            }
+        ]
+    },
+    {
+        "actions" : {  },
+        "boxRec" : "V4",
+        "id" : "F2",
+        "items" : [
+            {
+                "actions" : {  },
+                "asin" : "X0003GYRF1",
+                "demo" : {  },
+                "title" : "Alternatives to Cognition"
+            },
+            {
+                "actions" : {  },
+                "asin" : "X0003CJWSH",
+                "demo" : {  },
+                "title" : "One of Freedom's Finest Hours"
+            },
+            {
+                "actions" : {  },
+                "asin" : "X0003J2KQL",
+                "demo" : {  },
+                "title" : "Human Being in Depth"
+            }
+        ]
+    }
+]
