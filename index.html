@@ -105,18 +105,7 @@
 
             <div id="invalid-spoo-modal" class="modal-container2"></div>
 
-            <div id="activation-modal" class="modal-container2 serial-scan">
-                <header id="serial-scan-header" class="exception-modal-header container-header">Attention</header>
-                <div class="padding125">
-                    <div id="serial-scan-label" class="warning-label-container">Scan serial number</div>
-                    <div class="modal-image two-steps"><img src="img/modal_ActivationScan.jpg" alt="" /></div>
-                    <p id="serial-scan-text" class="warning-message">You need to scan 1 barcode for this item.</p>
-                    <h6 class="modal-text-label">Item</h6>
-                    <p class="exception-title-text">Product name</p>
-                    <h6 class="modal-text-label">Status</h6>
-                    <p class="scan-status-text error-text">Waiting for scan...</p>
-                </div>
-            </div>
+            <div id="activation-modal" class="modal-container2 serial-scan"></div>
         </div>
         <!-- End Modals container -->
 
@@ -165,6 +154,19 @@
             <p id="invalid-spoo-text-3" class="warning-message">If the shipment was sent down the line without a SP00, use the Forgot SP00 (g) problem in the Problem menu (p) to report it.</p>
             <p class="modal-text-label">Barcode</p>
             <p class="exception-title-text invalid-spoo-barcode"><%= scanVal %></p>
+        </div>
+    </script>
+
+    <script type="text/template" id="modal-activation-template">
+        <header id="serial-scan-header" class="exception-modal-header container-header">Attention</header>
+        <div class="padding125">
+            <div id="serial-scan-label" class="warning-label-container" style="font-size:5.5em;">Scan serial number</div>
+            <div class="modal-image two-steps"><img src="img/modal_ActivationScan.jpg" alt="" /></div>
+            <p id="serial-scan-text" class="warning-message">You need to scan 1 barcode for this item.</p>
+            <h6 class="modal-text-label">Item</h6>
+            <p class="exception-title-text"><%= item.get("title") %></p>
+            <h6 class="modal-text-label">Status</h6>
+            <p class="scan-status-text error-text">Waiting for scan...</p>
         </div>
     </script>
 

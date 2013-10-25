@@ -226,11 +226,28 @@ app.ItemsView = Backbone.View.extend({
                     var validItems = view.unscanned.where({asin: scanValue}),
                         scannedItem;
 
-                    if (validItems.length > 0) {
-                        scannedItem = validItems.shift();
-                        view.scanned.add(scannedItem);
-                        view.unscanned.remove(scannedItem);
-                        $.publish('item.scanned', [scannedItem]);
+                    if (scanValue.toUpperCase() === "ACTIVATION") {
+                        app.utils.Modal.hide();
+                        view.waitingForActivation = false;
+                        view.scanned.add(view.currentItem);
+                        view.unscanned.remove(view.currentItem);
+                        $.publish('item.scanned', [view.currentItem]);
+                    } else if (view.waitingForActivation !== true) {
+                        if (validItems.length > 0) {
+                            scannedItem = validItems.shift();
+                            if (scannedItem.get('actions').activation !== undefined) {
+                                // Show modal and wait for serial scan
+                                app.utils.Modal.show('#activation-modal', '#modal-activation-template', {
+                                    item: scannedItem
+                                });
+                                view.waitingForActivation = true;
+                                view.currentItem = scannedItem;
+                            } else {
+                                view.scanned.add(scannedItem);
+                                view.unscanned.remove(scannedItem);
+                                $.publish('item.scanned', [scannedItem]);
+                            }
+                        }
                     }
 
                     if (view.unscanned.length === 0) {

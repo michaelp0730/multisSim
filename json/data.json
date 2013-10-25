@@ -5,7 +5,9 @@
         "id" : "F1",
         "items" : [
             {
-                "actions" : {  },
+                "actions" : {
+                    "activation" : true
+                },
                 "asin" : "639277539656",
                 "demo" : {  },
                 "title" : "Turbo Football"
@@ -75,7 +77,7 @@
         "items" : [
             {
                 "actions" : {
-                    "activation" : "true"
+                    "activation" : true
                 },
                 "asin" : "X00085VVQZ",
                 "demo" : {  },
@@ -539,13 +541,13 @@
         "id" : "E7",
         "items" : [
             {
-                "actions" : { "activation" : "true" },
+                "actions" : { "activation" : true },
                 "asin" : "X00018W1ZJ",
                 "demo" : {  },
                 "title" : "Painter 6 FX & Design"
             },
             {
-                "actions" : { "activation" : "true" },
+                "actions" : { "activation" : true },
                 "asin" : "X0003FQC9L",
                 "demo" : {  },
                 "title" : "Year of Luke"
