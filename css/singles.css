@@ -1627,6 +1627,10 @@ h6.modal-text-label:last-child {
     border-bottom-right-radius: 5px;
     border: 0; }
 
+.current {
+    background-color: #c8dafd;
+    color: #403e3d; }
+
 .not-available {
     background-color: #716e6b !important;
     color: #403e3d !important;
