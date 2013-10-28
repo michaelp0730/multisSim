@@ -180,6 +180,7 @@ app.ItemsView = Backbone.View.extend({
     complete: function() {
         this.active = false;
         this.mode = 'complete';
+        console.log('Complete');
     },
     render: function() {
         var view = this,
@@ -213,14 +214,18 @@ app.ItemsView = Backbone.View.extend({
         $('#scanner-input').keypress(function(e) {
             scanValue = $(this).val();
             if (e.which === 13) {
-                if (view.active === false && view.mode !== 'complete') {
-                    if (scanValue === "SR2085" || scanValue === "sr2085") {
-                        $.publish('cart.scanned', [scanValue]);
-                        app.utils.Modal.hide();
-                    } else {
-                        app.utils.Modal.show('#invalid-cart-modal', '#modal-invalid-cart-template', {
-                            scanVal: $(this).val()
-                        });
+                if (view.active === false /* && view.mode !== 'complete' */) {
+                    if (view.mode === 'inactive') {
+                        if (scanValue === "SR2085" || scanValue === "sr2085") {
+                            $.publish('cart.scanned', [scanValue]);
+                            app.utils.Modal.hide();
+                        } else {
+                            app.utils.Modal.show('#invalid-cart-modal', '#modal-invalid-cart-template', {
+                                scanVal: $(this).val()
+                            });
+                        }
+                    } else if (view.mode === 'complete') {
+                        view.mode = 'inactive';
                     }
                 } else if (view.active === true) {
                     var validItems = view.unscanned.where({asin: scanValue}),
@@ -255,6 +260,7 @@ app.ItemsView = Backbone.View.extend({
                         view.complete();
                     }
                 }
+
                 view.render();
                 $('#scanner-input').val('');
             }
@@ -394,5 +400,32 @@ app.LastShipmentView = Backbone.View.extend({
     },
     hide: function() {
         this.$el.hide();
+    }
+});
+
+app.CartCompleteView = Backbone.View.extend({
+    el: $('#cart-complete-wrapper'),
+    template: _.template($('#cart-complete-template').html()),
+    initialize: function() {
+        this.listen();
+    },
+    render: function() {
+        var view = this;
+        this.$el.html(this.template({
+            spoo: view.lastSpoo
+        }));
+        this.show();
+    },
+    show: function() {
+        this.$el.show();
+    },
+    hide: function() {
+        this.$el.hide();
+    },
+    listen: function() {
+        var view = this;
+        $.subscribe('slot.complete', function(e, spoo) {
+            view.lastSpoo = spoo;
+        });
     }
 });

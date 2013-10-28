@@ -24,6 +24,8 @@ var app = app || {},
 
     lastShipment = new app.LastShipmentView(),
 
+    cartCompleteView = new app.CartCompleteView(),
+
     slotView = new app.SlotView(),
 
     boxRecView = new app.BoxRecView(),
@@ -35,8 +37,9 @@ var app = app || {},
             var slot = allSlots.shift();
             init(slot);
         } else {
-            // Handle no slots left
-            // Cart complete
+            processView.next();
+            $('#multis-item-info').hide();
+            cartCompleteView.render();
         }
     },
 
@@ -83,6 +86,8 @@ function initializeSlotView() {
 $.subscribe('cart.scanned', function(e) {
     allSlots.fetch({
         success: function() {
+            cartCompleteView.hide();
+            $('#multis-item-info').show();
             initializeSlotView();
         }
     });
@@ -104,7 +109,4 @@ $.subscribe('slot.complete', function(e, spoo) {
     boxRecView.render();
     itemsView.render();
     lastShipment.render(spoo);
-    var slotHeight = $('#multis-slot-recommendation').height();
-    $('#multis-slot').css({lineHeight: slotHeight + 'px'});
-    $('#multis-box').css({lineHeight: slotHeight + 'px'});
 });

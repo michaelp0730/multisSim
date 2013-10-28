@@ -1,13 +1,11 @@
 [
     {
-        "actions" : { "PSLIP" : "true" },
+        "actions" : {},
         "boxRec" : "1A5",
         "id" : "F1",
         "items" : [
             {
-                "actions" : {
-                    "activation" : true
-                },
+                "actions" : {},
                 "asin" : "639277539656",
                 "demo" : {  },
                 "title" : "Turbo Football with a super really long extra long ridiculous title"

@@ -96,20 +96,7 @@
         </section> <!-- #multis-item-info -->
 
         <!-- #cart-complete-container -->
-        <section id="cart-complete-wrapper" class="cart-complete-wrapper item-info hidden">
-            <span class="cart-complete-column-left container">
-                <h4>Cart Complete</h4>
-                <h1>Scan the next cart to continue</h1>
-                <h6>Cart</h6>
-                <p>SR2085</p>
-            </span>
-            <span class="cart-complete-column-right multis-large-container-top container">
-                <h4>Shipment Complete</h4>
-                <h3>After the item is packed, place it on the conveyor.</h3>
-                <h6>Scanned SP00</h6>
-                <p>sp9832475</p>
-            </span>
-        </section>
+        <section id="cart-complete-wrapper" class="cart-complete-wrapper item-info"></section>
 
         <!-- Modals container -->
         <div id="multis-modal-container">
@@ -340,6 +327,21 @@
             <% }); %>
             <h4 class="spoo <%= spooStep.get('status') %>"><span><%= spooStep.getText() %></span></h4>
         </div>
+    </script>
+
+    <script type="text/template" id="cart-complete-template">
+        <span class="cart-complete-column-left container">
+            <h4>Cart Complete</h4>
+            <h1>Scan the next cart to continue</h1>
+            <h6>Cart</h6>
+            <p>SR2085</p>
+        </span>
+        <span class="cart-complete-column-right multis-large-container-top container">
+            <h4>Shipment Complete</h4>
+            <h3>After the item is packed, place it on the conveyor.</h3>
+            <h6>Scanned SP00</h6>
+            <p><%= spoo %></p>
+        </span>
     </script>
 
     <!-- Load Libraries -->
