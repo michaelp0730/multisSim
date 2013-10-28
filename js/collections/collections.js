@@ -7,7 +7,7 @@ app.CartCollection = Backbone.Collection.extend({
 
 app.SlotCollection = Backbone.Collection.extend({
     model: app.Slot,
-    url: 'json/data-small.json'
+    url: 'json/data.json'
 });
 
 app.ProductsCollection = Backbone.Collection.extend({

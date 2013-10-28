@@ -163,11 +163,13 @@ app.ItemsView = Backbone.View.extend({
         this.scanned = new app.ProductsCollection();
         this.unscanned = new app.ProductsCollection();
         this.active = false;
+        this.damaged = false;
         this.mode = 'inactive';
         this.listen();
     },
     setModel: function(model) {
         this.active = true;
+        this.damaged = false;
         this.mode = 'active';
         this.model = model;
         this.unscanned = model.get('items');
@@ -264,6 +266,14 @@ app.ItemsView = Backbone.View.extend({
                 view.render();
                 $('#scanner-input').val('');
             }
+        });
+
+        // Listen for damaging an item
+        $.subscribe('hotkey.damage', function() {
+            view.damaged = true;
+
+            // Show Damaged Item Modal
+            app.utils.Modal.show("#damaged-item-modal");
         });
     }
 });
@@ -426,6 +436,38 @@ app.CartCompleteView = Backbone.View.extend({
         var view = this;
         $.subscribe('slot.complete', function(e, spoo) {
             view.lastSpoo = spoo;
+        });
+    }
+});
+
+app.ProblemMenuView = Backbone.View.extend({
+    el: $('#problem-menu-container'),
+    initialize: function() {
+        this.listen();
+    },
+    toggle: function() {
+        if (this.$el.is(':visible')) {
+            this.hide();
+        } else {
+            this.show();
+        }
+    },
+    show: function() {
+        app.utils.Modal.show(this.$el);
+    },
+    hide: function() {
+        app.utils.Modal.hide();
+    },
+    listen: function() {
+        var view = this;
+        $.subscribe('hotkey.problem', function(e) {
+            view.toggle();
+        });
+
+        $.subscribe('hotkey.back', function(e) {
+            if (view.$el.is(':visible')) {
+                view.hide();
+            }
         });
     }
 });

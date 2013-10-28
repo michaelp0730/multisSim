@@ -26,6 +26,8 @@ var app = app || {},
 
     cartCompleteView = new app.CartCompleteView(),
 
+    problemMenuView = new app.ProblemMenuView(),
+
     slotView = new app.SlotView(),
 
     boxRecView = new app.BoxRecView(),
@@ -110,3 +112,57 @@ $.subscribe('slot.complete', function(e, spoo) {
     itemsView.render();
     lastShipment.render(spoo);
 });
+
+
+// This section defines a buffered reader for keystrokes
+(function() {
+    var buffer = "",
+        $input = $('#scanner-input'),
+        delay = 50,
+        timeout;
+
+    var bufferedCheck = function(e) {
+        var code = e.which || e.keyCode,
+            ch = String.fromCharCode(code);
+
+        if (ch.match(/^[a-z0-9]$/i)) {
+            buffer += ch;
+            clearTimeout(timeout);
+            timeout = setTimeout(bufferHandler, delay);
+        } else if (code === 13) {
+            clearTimeout(timeout);
+            bufferHandler();
+        }
+    };
+
+    var bufferHandler = function() {
+        switch (buffer.toUpperCase()) {
+            case "P":
+                // Show Problem menu
+                $.publish('hotkey.problem');
+                break;
+
+            case "D":
+                $.publish('hotkey.damaged');
+                break;
+
+            case "M":
+                $.publish('hotkey.missing');
+                break;
+
+            case "U":
+                $.publish('hotkey.unscannable');
+                break;
+
+            case "B":
+                $.publish('hotkey.back');
+                break;
+        }
+
+        // Clear both input field and buffer
+        $input.val("");
+        buffer = "";
+    };
+
+    $(document).on('keypress', bufferedCheck);
+})();
