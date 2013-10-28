@@ -28,7 +28,7 @@
         constructor : MultiList,
 
         init : function() {
-            this.cols = this.$element.find('ul');
+            this.cols = this.$element.find('ul,ol');
             this.$curr_col = $(this.cols.get(0));
         },
 
@@ -69,7 +69,7 @@
             if (col_index < this.cols.length - 1) {
                 // Remove the current selected style
                 this.$curr_col.find('li.current').removeClass('current');
-                this.$curr_col = this.$curr_col.next('ul');
+                this.$curr_col = this.$curr_col.next('ul,ol');
 
                 // Select the next column
                 items = this.$curr_col.find('li');
@@ -122,7 +122,7 @@
             if (col_index > 0) {
                 // Remove the current selected style
                 this.$curr_col.find('li.current').removeClass('current');
-                this.$curr_col = this.$curr_col.prev('ul');
+                this.$curr_col = this.$curr_col.prev('ul,ol');
 
                 // Select the next column
                 items = this.$curr_col.find('li');

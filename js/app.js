@@ -53,4 +53,4 @@ function findWithAttr(array, attr, val) {
 }
 
 // Initialize Multilist on Problem Menu
-$('ol.problem-menu-modal [data-enable="multilist"]').multilist('enable');
+$('[data-enable="multilist"]').multilist('enable');

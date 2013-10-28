@@ -132,6 +132,9 @@ $.subscribe('slot.complete', function(e, spoo) {
         } else if (code === 13) {
             clearTimeout(timeout);
             bufferHandler();
+        } else if (code === 27) {
+            clearTimeout(timeout);
+            $.publish('hotkey.escape');
         }
     };
 

@@ -269,11 +269,13 @@ app.ItemsView = Backbone.View.extend({
         });
 
         // Listen for damaging an item
-        $.subscribe('hotkey.damage', function() {
-            view.damaged = true;
+        $.subscribe('hotkey.damaged', function() {
+            if (view.active === true) {
+                view.damaged = true;
 
-            // Show Damaged Item Modal
-            app.utils.Modal.show("#damaged-item-modal");
+                // Show Damaged Item Modal
+                app.utils.Modal.show("#damaged-item-modal");
+            }
         });
     }
 });
@@ -290,6 +292,7 @@ app.ShipmentStepsView = Backbone.View.extend({
     },
     setModel: function(model) {
         this.model = model;
+        this.damaged = false;
         this.spoo = new app.Action({
             type: "spoo",
             status: "inactive",
@@ -395,6 +398,14 @@ app.ShipmentStepsView = Backbone.View.extend({
                     }
                 }
             }
+        });
+
+        // Listen for damaging an item
+        $.subscribe('hotkey.damage', function() {
+            view.damaged = true;
+
+            // Show Damaged Item Modal
+            app.utils.Modal.show("#damaged-item-modal");
         });
     }
 });

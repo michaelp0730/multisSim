@@ -1262,12 +1262,12 @@ cite {
 
 .problem-menu-modal {
     height: 375px;
-    position: relative;
-}
-.problem-menu-modal li {
-    display: inline-block;
     float: left;
     width: 50%;
+}
+
+.problem-menu-modal li {
+    display: block;
     height: 125px;
     padding: 22px 25px 16px 40px;
 }
