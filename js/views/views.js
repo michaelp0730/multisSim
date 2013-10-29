@@ -221,7 +221,7 @@ app.ItemsView = Backbone.View.extend({
             if (e.which === 13) {
                 if (view.active === false /* && view.mode !== 'complete' */) {
                     if (view.mode === 'inactive') {
-                        if (scanValue === "SR2085" || scanValue === "sr2085") {
+                        if (scanValue === "SR2065" || scanValue === "sr2065") {
                             $.publish('cart.scanned', [scanValue]);
                             app.utils.Modal.hide();
                         } else {
@@ -432,10 +432,9 @@ app.LastShipmentView = Backbone.View.extend({
     },
     render: function(spoo, damaged) {
         if (damaged === true) {
-            console.log("damaged true");
             this.$damaged.show();
         } else {
-            console.log("damaged false");
+            $('.last-shipment-damaged-info').hide();
             this.$complete.show();
             this.$complete.find('p').html(spoo);
         }
@@ -507,5 +506,3 @@ app.ProblemMenuView = Backbone.View.extend({
         });
     }
 });
-
-// sr2085

@@ -8,7 +8,7 @@
                 "actions" : {},
                 "asin" : "639277539656",
                 "demo" : {  },
-                "title" : "Turbo Football with a super really long extra long ridiculous title"
+                "title" : "Turbo Football"
             },
             {
                 "actions" : {  },
@@ -285,7 +285,7 @@
         ]
     },
     {
-        "actions" : {  },
+        "actions" : { "PSLIP" : "true" },
         "boxRec" : "1A5",
         "id" : "E2",
         "items" : [

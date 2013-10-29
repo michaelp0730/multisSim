@@ -1,5 +1,9 @@
 /* Multis Styles */
 
+#scanner-input {
+    position: absolute;
+    top: -200px; }
+
 /* Multis Slot classes */
 .slot-red, .slot-F {
     color: #FFF;
