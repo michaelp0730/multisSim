@@ -22,6 +22,13 @@ app.ProductsCollection = Backbone.Collection.extend({
                 };
             } else {
                 asins[model.get('asin')].count++;
+                if (model.get('status') === 'damaged') {
+                    asins[model.get('asin')].model.set('status', 'damaged');
+                }
+
+                if (model.get('actions').activation !== undefined) {
+                    asins[model.get('asin')].model.set('actions', { activation : true });
+                }
             }
         });
 

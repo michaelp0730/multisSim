@@ -99,20 +99,46 @@ $.subscribe('item.scanned', function(item) {
     lastShipment.hide();
 });
 
-$.subscribe('slotItems.scanned', function() {
+function problemSolveScanHandler(e) {
+    var code = e.keyCode || e.which;
+    if (code === 13) {
+        app.utils.Modal.hide();
+        $.publish('slot.complete', ['asdf', true])
+        $('#scanner-input').off('keypress', problemSolveScanHandler);
+        $(this).val('');
+    }
+};
+
+$.subscribe('slotItems.scanned', function(e, isDamaged) {
     shipmentStepsView.activate();
     shipmentStepsView.render();
+    console.log("DAMAGED: ", isDamaged);
+
+    if (isDamaged === true) {
+        app.utils.Modal.show('#problem-solve-tote-modal');
+        $('#scanner-input').on('keypress', problemSolveScanHandler);
+    }
 });
 
-$.subscribe('slot.complete', function(e, spoo) {
+$.subscribe('slot.complete', function(e, spoo, isDamaged) {
     shipmentStepsView.complete();
     loadSlot();
     slotView.render();
     boxRecView.render();
     itemsView.render();
-    lastShipment.render(spoo);
+    lastShipment.render(spoo, isDamaged);
 });
 
+$.subscribe('hotkey.damaged', function(e) {
+    problemMenuView.hide();
+    app.utils.Modal.show("#damaged-item-modal");
+    $.publish('damaged.pending');
+});
+
+$.subscribe('item.damaged', function(item) {
+    app.utils.Modal.hide();
+    shipmentStepsView.setDamaged();
+});
 
 // This section defines a buffered reader for keystrokes
 (function() {
@@ -125,7 +151,7 @@ $.subscribe('slot.complete', function(e, spoo) {
         var code = e.which || e.keyCode,
             ch = String.fromCharCode(code);
 
-        if (ch.match(/^[a-z0-9]$/i)) {
+        if (ch.length > 0 && ch.match(/^[a-z0-9]$/i)) {
             buffer += ch;
             clearTimeout(timeout);
             timeout = setTimeout(bufferHandler, delay);

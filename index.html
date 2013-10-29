@@ -91,6 +91,12 @@
                             <p></p>
                         </div>
                     </div>
+                    <div class="last-shipment-damaged-info">
+                        <div class="multis-complete multis-confirmation">
+                            Last Shipment marked as damaged
+                            <p></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section> <!-- #multis-item-info -->
@@ -110,10 +116,22 @@
 
             <div id="activation-modal" class="modal-container2 serial-scan"></div>
 
+            <div id="problem-solve-tote-modal" class="modal-container2">
+                <header class="modal-header rounded-top-corners-small">Scan a Problem Solve Tote</header>
+            </div>
+
             <div id="damaged-item-modal" class="modal-container2">
                 <header class="modal-header rounded-top-corners-small">
-                    Damaged Item
+                    <div class="small-center-label">Damaged Item</div>
                 </header>
+                <div class="padding125">
+                    <div class="warning-label-container problem-resolution-label" style="font-size:64px">Mark the item as damaged</div>
+                    <p class="warning-message">Scan the damaged item to continue.</p>
+                    <div class="scan-pslip-status-container" style="margin: 120px 30px 0; height:auto;">
+                        <h6>Status</h6>
+                        <p class="error-text">Waiting for scan...</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Problem Menu -->
@@ -299,6 +317,7 @@
                             <li>
                                 <%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %>
                                 <%= (item.get('actions').activation !== undefined) ? '<span class="activated">Activated</span>' : '' %>
+                                <%= (item.get('status') === "damaged") ? '<span class="activated">Damaged</span>' : '' %>
                                 <%= item.get('title') %>
                             </li>
                         <% } %>
@@ -318,6 +337,7 @@
                         <li>
                             <%= (count > 1) ? '<span class="item-count-multis">' + count + '</span>' : '' %>
                             <%= (item.get('actions').activation !== undefined) ? '<span class="activated">Activated</span>' : '' %>
+                            <%= (item.get('status') === "damaged") ? '<span class="activated">Damaged</span>' : '' %>
                             <%= item.get('title') %>
                         </li>
                         <% } %>
@@ -328,6 +348,14 @@
 
     <script type="text/template" id="shipment-template">
         <%
+        console.log(damaged);
+        if (damaged === true) {
+        %>
+        <div class="shipment-damaged">
+            <h4 class="damaged-note">Scan the remaining items in the shipment</h4>
+        </div>
+        <%
+        } else {
             var clsName = 'shipment-single-step';
             if (steps.length === 1) clsName = 'shipment-double-step';
             if (steps.length === 2) clsName = 'shipment-triple-step';
@@ -338,6 +366,7 @@
             <% }); %>
             <h4 class="spoo <%= spooStep.get('status') %>"><span><%= spooStep.getText() %></span></h4>
         </div>
+        <% } %>
     </script>
 
     <script type="text/template" id="cart-complete-template">

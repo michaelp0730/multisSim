@@ -177,9 +177,8 @@
                             break;
 
                         case 13: // ENTER
-                            var $dest = $this.$curr_col.find('.current a');
-                            if ($dest && undefined !== $dest.prop('href')) {
-                                window.location = $dest.prop('href');
+                            if ($this.$element.is(':visible')) {
+                                $this.options.submit.call($this);
                             }
                             break;
 
@@ -205,7 +204,14 @@
 
     $.fn.multilist.defaults = {
         trapEvent : true,
-        active : true
+        active : true,
+        submit : function() {
+            var $dest = this.$curr_col.find('.current a');
+
+            if ($dest && undefined !== $dest.prop('href')) {
+                window.location = $dest.prop('href');
+            }
+        }
     };
 
     $.fn.multilist.Constructor = MultiList;

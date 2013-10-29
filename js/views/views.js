@@ -170,11 +170,15 @@ app.ItemsView = Backbone.View.extend({
     setModel: function(model) {
         this.active = true;
         this.damaged = false;
+        this.damagedAsin = null;
         this.mode = 'active';
         this.model = model;
         this.unscanned = model.get('items');
         this.scanned = new app.ProductsCollection();
         this.render();
+    },
+    setDamaged: function() {
+        this.damaged = true;
     },
     deactivate: function() {
         this.active = false;
@@ -182,7 +186,6 @@ app.ItemsView = Backbone.View.extend({
     complete: function() {
         this.active = false;
         this.mode = 'complete';
-        console.log('Complete');
     },
     render: function() {
         var view = this,
@@ -233,32 +236,52 @@ app.ItemsView = Backbone.View.extend({
                     var validItems = view.unscanned.where({asin: scanValue}),
                         scannedItem;
 
-                    if (scanValue.toUpperCase() === "ACTIVATION") {
-                        app.utils.Modal.hide();
-                        view.waitingForActivation = false;
-                        view.scanned.add(view.currentItem);
-                        view.unscanned.remove(view.currentItem);
-                        $.publish('item.scanned', [view.currentItem]);
-                    } else if (view.waitingForActivation !== true) {
+                    if (view.pending === true) {
                         if (validItems.length > 0) {
                             scannedItem = validItems.shift();
-                            if (scannedItem.get('actions').activation !== undefined) {
-                                // Show modal and wait for serial scan
-                                app.utils.Modal.show('#activation-modal', '#modal-activation-template', {
-                                    item: scannedItem
-                                });
-                                view.waitingForActivation = true;
-                                view.currentItem = scannedItem;
-                            } else {
-                                view.scanned.add(scannedItem);
-                                view.unscanned.remove(scannedItem);
-                                $.publish('item.scanned', [scannedItem]);
+                            view.damagedAsin = scanValue;
+                            view.unscanned.remove(scannedItem);
+                            view.scanned.add(scannedItem.set("status", "damaged"));
+                            view.pending = false;
+                            view.damaged = true;
+                            $.publish('item.damaged', [scannedItem]);
+                            $.publish('item.scanned', [scannedItem]);
+                        }
+                    } else if (view.damaged === true) {
+                        if (validItems.length > 0) {
+                            scannedItem = validItems.shift();
+                            view.scanned.add(scannedItem);
+                            view.unscanned.remove(scannedItem);
+                            $.publish('item.scanned', [scannedItem]);
+                        }
+                    } else {
+                        if (scanValue.toUpperCase() === "ACTIVATION") {
+                            app.utils.Modal.hide();
+                            view.waitingForActivation = false;
+                            view.scanned.add(view.currentItem);
+                            view.unscanned.remove(view.currentItem);
+                            $.publish('item.scanned', [view.currentItem]);
+                        } else if (view.waitingForActivation !== true) {
+                            if (validItems.length > 0) {
+                                scannedItem = validItems.shift();
+                                if (scannedItem.get('actions').activation !== undefined) {
+                                    // Show modal and wait for serial scan
+                                    app.utils.Modal.show('#activation-modal', '#modal-activation-template', {
+                                        item: scannedItem
+                                    });
+                                    view.waitingForActivation = true;
+                                    view.currentItem = scannedItem;
+                                } else {
+                                    view.scanned.add(scannedItem);
+                                    view.unscanned.remove(scannedItem);
+                                    $.publish('item.scanned', [scannedItem]);
+                                }
                             }
                         }
                     }
 
                     if (view.unscanned.length === 0) {
-                        $.publish('slotItems.scanned');
+                        $.publish('slotItems.scanned', [view.damaged]);
                         view.complete();
                     }
                 }
@@ -268,14 +291,8 @@ app.ItemsView = Backbone.View.extend({
             }
         });
 
-        // Listen for damaging an item
-        $.subscribe('hotkey.damaged', function() {
-            if (view.active === true) {
-                view.damaged = true;
-
-                // Show Damaged Item Modal
-                app.utils.Modal.show("#damaged-item-modal");
-            }
+        $.subscribe('damaged.pending', function() {
+            view.pending = true;
         });
     }
 });
@@ -325,6 +342,10 @@ app.ShipmentStepsView = Backbone.View.extend({
         }
         this.render();
     },
+    setDamaged: function() {
+        this.damaged = true;
+        this.render();
+    },
     render: function() {
         var view = this,
             model = this.model;
@@ -332,7 +353,8 @@ app.ShipmentStepsView = Backbone.View.extend({
         this.$el.html(this.template({
             active: view.active,
             spooStep: this.spoo,
-            steps: view.actions
+            steps: view.actions,
+            damaged: view.damaged
         }));
 
         var shipmentDblStepHeight = $('.shipment-double-step').height();
@@ -399,21 +421,18 @@ app.ShipmentStepsView = Backbone.View.extend({
                 }
             }
         });
-
-        // Listen for damaging an item
-        $.subscribe('hotkey.damage', function() {
-            view.damaged = true;
-
-            // Show Damaged Item Modal
-            app.utils.Modal.show("#damaged-item-modal");
-        });
     }
 });
 
 app.LastShipmentView = Backbone.View.extend({
     el: $('#last-shipment-complete-container'),
-    render: function(spoo) {
-        this.$el.find('p').html(spoo);
+    initialize: function() {
+        this.$complete = this.$el.find('last-shipment-complete-info');
+        this.$damaged = this.$el.find('last-shipment-damaged-info');
+    },
+    render: function(spoo, damaged) {
+        this.$complete.show();
+        this.$complete.find('p').html(spoo);
         this.show();
     },
     show: function() {

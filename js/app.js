@@ -53,4 +53,11 @@ function findWithAttr(array, attr, val) {
 }
 
 // Initialize Multilist on Problem Menu
-$('[data-enable="multilist"]').multilist('enable');
+$('[data-enable="multilist"]').multilist({
+    submit: function() {
+        var $dest = this.$curr_col.find('.current span'),
+            hotkey = $dest.text();
+
+        $(document).trigger(new $.Event('keypress', { keyCode: hotkey.charCodeAt(0) }));
+    }
+}).multilist('enable');
