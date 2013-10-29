@@ -117,7 +117,22 @@
             <div id="activation-modal" class="modal-container2 serial-scan"></div>
 
             <div id="problem-solve-tote-modal" class="modal-container2">
-                <header class="modal-header rounded-top-corners-small">Scan a Problem Solve Tote</header>
+                <header class="modal-header rounded-top-corners-small">
+                    <div class="small-center-label">Scan a Problem Solve Tote</div>
+                </header>
+                <div class="padding125">
+                    <div class="warning-label-container problem-resolution-label" style="font-size:4em;">Scan to problem solve tote</div>
+                    <p class="warning-message">Do not pack this shipment. Follow the steps below to continue:</p>
+                    <ol class="modal-instructions-list">
+                        <li>Turn on your Andon light.</li>
+                        <li>Put the entire shipment in the Problem Solve tote.</li>
+                        <li>Scan the Problem Solve tote to continue packing.</li>
+                    </ol>
+                    <div class="status-container-bottom" style="margin-top: 60px;">
+                        <h6>Status</h6>
+                        <p class="error-text">Waiting for scan...</p>
+                    </div>
+                </div>
             </div>
 
             <div id="damaged-item-modal" class="modal-container2">
@@ -127,7 +142,7 @@
                 <div class="padding125">
                     <div class="warning-label-container problem-resolution-label" style="font-size:64px">Mark the item as damaged</div>
                     <p class="warning-message">Scan the damaged item to continue.</p>
-                    <div class="scan-pslip-status-container" style="margin: 120px 30px 0; height:auto;">
+                    <div class="status-container-bottom" style="margin-top: 120px;">
                         <h6>Status</h6>
                         <p class="error-text">Waiting for scan...</p>
                     </div>
@@ -348,7 +363,6 @@
 
     <script type="text/template" id="shipment-template">
         <%
-        console.log(damaged);
         if (damaged === true) {
         %>
         <div class="shipment-damaged">

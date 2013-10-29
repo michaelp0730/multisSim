@@ -287,6 +287,16 @@ h4.pslip.complete, h4.spoo.complete, .multis-complete {
     background-color: #5a9952;
     color: #FFF; }
 
+.shipment-damaged {
+    display: table;
+    height: 100%; }
+
+.damaged-note {
+    display:table-cell;
+    vertical-align:middle;
+    background-color: #3c97d3;
+    color: #fff; }
+
 .scanned {
     height: 100%;
     color: #FFF;
@@ -337,7 +347,7 @@ h4.pslip.complete, h4.spoo.complete, .multis-complete {
 .shipment-double-step h4:first-child {
     margin-bottom: 20px; }
 
-.last-shipment-complete-info {
+.last-shipment-complete-info, .last-shipment-damaged-info {
     position: absolute;
     top: 0;
     left: 0;
@@ -460,3 +470,11 @@ h4.pslip.complete, h4.spoo.complete, .multis-complete {
 
 .cart-complete-wrapper p {
     font-family: "Roboto-Light", Helvetica, Arial, sans-serif; }
+
+.status-container-bottom {
+    display: inline-block;
+    margin-left: 30px;
+    height: auto; }
+
+.status-container-bottom h6 {
+    margin-bottom: 10px; }

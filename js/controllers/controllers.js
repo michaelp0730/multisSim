@@ -112,7 +112,6 @@ function problemSolveScanHandler(e) {
 $.subscribe('slotItems.scanned', function(e, isDamaged) {
     shipmentStepsView.activate();
     shipmentStepsView.render();
-    console.log("DAMAGED: ", isDamaged);
 
     if (isDamaged === true) {
         app.utils.Modal.show('#problem-solve-tote-modal');

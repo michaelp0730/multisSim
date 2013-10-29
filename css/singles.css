@@ -1647,6 +1647,7 @@ h6.modal-text-label:last-child {
 ol.modal-instructions-list {
     list-style-type: decimal;
     font-family: "Roboto-Light", Helvetica, Arial, sans-serif;
+    font-size: 24px;
     color: #716e6b;
     margin: 0 0 25px 54px;
     padding: 0;

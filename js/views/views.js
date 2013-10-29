@@ -431,8 +431,14 @@ app.LastShipmentView = Backbone.View.extend({
         this.$damaged = this.$el.find('last-shipment-damaged-info');
     },
     render: function(spoo, damaged) {
-        this.$complete.show();
-        this.$complete.find('p').html(spoo);
+        if (damaged === true) {
+            console.log("damaged true");
+            this.$damaged.show();
+        } else {
+            console.log("damaged false");
+            this.$complete.show();
+            this.$complete.find('p').html(spoo);
+        }
         this.show();
     },
     show: function() {
@@ -501,3 +507,5 @@ app.ProblemMenuView = Backbone.View.extend({
         });
     }
 });
+
+// sr2085
