@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="df491605-be80-4f14-b017-ce31902f3e7d" name="Default" comment="" />
+    <ignored path="multisSim.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="multisSim" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="singles.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/singles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1649" column="20" selection-start="31431" selection-end="31431" vertical-scroll-proportion="5.1868134" vertical-offset="21664" max-vertical-offset="31712">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/js/clock.js" />
+        <option value="$PROJECT_DIR$/js/pub-sub.js" />
+        <option value="$PROJECT_DIR$/json/colors.json" />
+        <option value="$PROJECT_DIR$/js/models/models.js" />
+        <option value="$PROJECT_DIR$/json/data-small.json" />
+        <option value="$PROJECT_DIR$/js/plugins/Multilist.js" />
+        <option value="$PROJECT_DIR$/js/utils.js" />
+        <option value="$PROJECT_DIR$/js/collections/collections.js" />
+        <option value="$PROJECT_DIR$/js/vendor/jquery-2.0.3.js" />
+        <option value="$PROJECT_DIR$/css/singles.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/controllers/controllers.js" />
+        <option value="$PROJECT_DIR$/css/multis.css" />
+        <option value="$PROJECT_DIR$/js/views/views.js" />
+        <option value="$PROJECT_DIR$/json/data.json" />
+        <option value="$PROJECT_DIR$/js/app.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="22" />
+    <option name="width" value="1809" />
+    <option name="height" value="1058" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multisSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="options.lastSelected" value="JavaScript.Libraries" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/Web Development/JavaScript/RequireJS/library files/require2.1.9.min.js" />
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="name" value="Dart" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <browser start="false" url="" with-js-debugger="false" />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="df491605-be80-4f14-b017-ce31902f3e7d" name="Default" comment="" />
+      <created>1381771441244</created>
+      <updated>1381771441244</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Working on SP00 complete">
+      <created>1382554510244</created>
+      <updated>1382554510244</updated>
+    </task>
+    <task id="LOCAL-00002" summary="SP00 scanned text working.">
+      <created>1382555495243</created>
+      <updated>1382555495243</updated>
+    </task>
+    <task id="LOCAL-00003" summary="SP00 scanned class working.">
+      <created>1382557281722</created>
+      <updated>1382557281722</updated>
+    </task>
+    <task id="LOCAL-00004" summary="After spoo scan, items are cleared.">
+      <created>1382562275535</created>
+      <updated>1382562275535</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Showing last shipment info.">
+      <created>1382565270219</created>
+      <updated>1382565270219</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed styles for Last Shipment Complete.">
+      <created>1382578881760</created>
+      <updated>1382578881760</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Not greying out slot and box until item scan.">
+      <created>1382580322080</created>
+      <updated>1382580322080</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added slot and boxrec color classes.">
+      <created>1382640075655</created>
+      <updated>1382640075655</updated>
+    </task>
+    <task id="LOCAL-00009" summary="PSLIP working!">
+      <created>1382653113894</created>
+      <updated>1382653113894</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added duplicate items. Removed unnecessary templates.">
+      <created>1382654383110</created>
+      <updated>1382654383110</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Successfully ran through an entire cart.">
+      <created>1382717039192</created>
+      <updated>1382717039192</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Adding modal images">
+      <created>1382719616186</created>
+      <updated>1382719616187</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Created a modals container">
+      <created>1382722065050</created>
+      <updated>1382722065050</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added modals utility function">
+      <created>1382725434596</created>
+      <updated>1382725434597</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Updated CSS for PSLIP modal.">
+      <created>1382728705959</created>
+      <updated>1382728705959</updated>
+    </task>
+    <task id="LOCAL-00016" summary="CSS errors cleanup.">
+      <created>1382728911684</created>
+      <updated>1382728911684</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Created the invalid tote modal">
+      <created>1382729416117</created>
+      <updated>1382729416117</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Configured the Invalid Cart modal.">
+      <created>1382730238150</created>
+      <updated>1382730238150</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Created the Invalid SP00 modal">
+      <created>1382730727195</created>
+      <updated>1382730727195</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Configured the invalid spoo modal.">
+      <created>1382731288479</created>
+      <updated>1382731288479</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Activation scans working">
+      <created>1382735615125</created>
+      <updated>1382735615125</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added image to Invalid Cart modal">
+      <created>1382735736934</created>
+      <updated>1382735736935</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Upgrades to Activation">
+      <created>1382739451493</created>
+      <updated>1382739451493</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Created a small data file.">
+      <created>1382739709038</created>
+      <updated>1382739709038</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Created the Cart Complete screen">
+      <created>1382743437707</created>
+      <updated>1382743437707</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added the Problem Menu to the markup.">
+      <created>1382901624750</created>
+      <updated>1382901624750</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Styled modal back button.">
+      <created>1382902029680</created>
+      <updated>1382902029680</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added Multilist plugin.">
+      <created>1382902086613</created>
+      <updated>1382902086613</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Moved pubsub to plugins directory.">
+      <created>1382902162359</created>
+      <updated>1382902162359</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Loading Multilist.js on index.html.">
+      <created>1382902227419</created>
+      <updated>1382902227419</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Moved pub-sub. Started setting up Multilist.js.">
+      <created>1382902826877</created>
+      <updated>1382902826877</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Moved pub-sub.">
+      <created>1382902842815</created>
+      <updated>1382902842815</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Cart Complete is Complete!">
+      <created>1382981358736</created>
+      <updated>1382981358736</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Wrote hotkey handlers for Problem, and Back.">
+      <created>1382984684296</created>
+      <updated>1382984684296</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Multilist working!">
+      <created>1382986140057</created>
+      <updated>1382986140057</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Damaged working!">
+      <created>1383005262467</created>
+      <updated>1383005262467</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Ready for simulation.">
+      <created>1383072541822</created>
+      <updated>1383072541822</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Updates after running through first cart at ONT-2.">
+      <created>1383074495460</created>
+      <updated>1383074495460</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="22" width="1809" height="1058" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32453826" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272921" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272921" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12648894" sideWeight="0.6727079" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32522798" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="Added modals utility function" />
+    <MESSAGE value="Updated CSS for PSLIP modal." />
+    <MESSAGE value="CSS errors cleanup." />
+    <MESSAGE value="Created the invalid tote modal" />
+    <MESSAGE value="Configured the Invalid Cart modal." />
+    <MESSAGE value="Created the Invalid SP00 modal" />
+    <MESSAGE value="Configured the invalid spoo modal." />
+    <MESSAGE value="Activation scans working" />
+    <MESSAGE value="Added image to Invalid Cart modal" />
+    <MESSAGE value="Upgrades to Activation" />
+    <MESSAGE value="Created a small data file." />
+    <MESSAGE value="Created the Cart Complete screen" />
+    <MESSAGE value="Added the Problem Menu to the markup." />
+    <MESSAGE value="Styled modal back button." />
+    <MESSAGE value="Added Multilist plugin." />
+    <MESSAGE value="Moved pubsub to plugins directory." />
+    <MESSAGE value="Loading Multilist.js on index.html." />
+    <MESSAGE value="Moved pub-sub. Started setting up Multilist.js." />
+    <MESSAGE value="Moved pub-sub." />
+    <MESSAGE value="Cart Complete is Complete!" />
+    <MESSAGE value="Wrote hotkey handlers for Problem, and Back." />
+    <MESSAGE value="Multilist working!" />
+    <MESSAGE value="Damaged working!" />
+    <MESSAGE value="Ready for simulation." />
+    <MESSAGE value="Updates after running through first cart at ONT-2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates after running through first cart at ONT-2." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/json/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="287" column="41" selection-start="8023" selection-end="8023" vertical-scroll-proportion="0.0" vertical-offset="4592" max-vertical-offset="13616">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/routers/routers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="14" selection-end="14" vertical-scroll-proportion="0.025477707" vertical-offset="0" max-vertical-offset="628" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/clock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="304" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/models/models.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="3" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="912" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/data-small.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="21" selection-start="29" selection-end="29" vertical-scroll-proportion="-1.28" vertical-offset="0" max-vertical-offset="912" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/Multilist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="38" selection-start="7158" selection-end="7172" vertical-scroll-proportion="0.0" vertical-offset="2548" max-vertical-offset="3568" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/vendor/jquery-2.0.3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8829" column="0" selection-start="337346" selection-end="337346" vertical-scroll-proportion="0.0" vertical-offset="140452" max-vertical-offset="141360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="287" column="41" selection-start="8023" selection-end="8023" vertical-scroll-proportion="0.0" vertical-offset="4592" max-vertical-offset="13616">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="88" selection-start="2277" selection-end="2277" vertical-scroll-proportion="0.88681316" vertical-offset="153" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/collections/collections.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="89" selection-start="965" selection-end="965" vertical-scroll-proportion="0.50989014" vertical-offset="0" max-vertical-offset="910">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.1934066" vertical-offset="0" max-vertical-offset="910">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="0" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="3015">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/views/views.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="74" selection-start="6896" selection-end="6896" vertical-scroll-proportion="0.0" vertical-offset="3345" max-vertical-offset="7695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="58" selection-start="4140" selection-end="4166" vertical-scroll-proportion="-0.0" vertical-offset="1488" max-vertical-offset="6330">
+          <folding>
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1383007470000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/multis.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="18" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="7335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/singles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1649" column="20" selection-start="31431" selection-end="31431" vertical-scroll-proportion="5.1868134" vertical-offset="21664" max-vertical-offset="31712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
